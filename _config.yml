@@ -1,0 +1,16 @@
+# Book settings
+title: My sample book
+author: The Jupyter Book Community
+logo: logo.png
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/damorimRG/practical_testing_book
+launch_buttons:
+  notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+
+latex:
+  latex_documents:
+    targetname: book.tex
