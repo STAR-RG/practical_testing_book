@@ -1,5 +1,20 @@
-file: intro
-sections:
-- file: markdown
-- file: notebooks
-- file: content
+#https://jupyterbook.org/customize/toc.html
+
+- file: intro
+
+- header: Welcome!
+- file: welcome
+
+- header: Fundamentals
+- file: basic
+
+- header: The Different Kinds of Testing
+- file: kinds
+
+- header: Example Jupyter Notebook
+- file: example
+
+- header: Misc
+- file: misc/credits
+- file: misc/howto
+- file: misc/tobedone

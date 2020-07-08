@@ -1,3 +1,0 @@
-Content in Jupyter Book
-=======================
-
