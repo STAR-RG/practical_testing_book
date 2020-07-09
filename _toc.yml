@@ -12,6 +12,15 @@
 - header: The Different Kinds of Testing
 - file: kinds
 
+- header: System Testing
+- file: ui
+- file: selenium
+
+- header: Debugging
+- file: scientific
+- file: gitbisect
+- file: deltadebugging
+
 - header: Misc
 - file: misc/credits
 - file: misc/howto
