@@ -2,7 +2,7 @@ How To Read This Book and Write/Contribute
 ==========================================
 
 This book is being created with Jupyter books. Please use <a
-href="https://jupyterbook.org/start/overview.html"this link</a> to
+href="https://jupyterbook.org/start/overview.html">this link</a> to
 understand the basic of Jupyter books.
 
 The essentials:

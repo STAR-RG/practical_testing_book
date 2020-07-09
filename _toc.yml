@@ -6,13 +6,11 @@
 - file: welcome
 
 - header: Fundamentals
-- file: basic
+- file: basics
+- file: unittest
 
 - header: The Different Kinds of Testing
 - file: kinds
-
-- header: Example Jupyter Notebook
-- file: example
 
 - header: Misc
 - file: misc/credits
