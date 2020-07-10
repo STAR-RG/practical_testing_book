@@ -14,11 +14,11 @@ Essentials:
   Jupyter books skim through <a
   href="https://jupyterbook.org/start/overview.html">this page</a>.
 
-* Two file formats can be used: .md and .pynb. The first is the
+  * Two file formats can be used: .md and .pynb. The first is the
   typical markdown files whereas the later are Python (Jupyter)
   Notebooks that we can use to demonstrate concepts.
 
-* For Python notebooks, the book provides two kinds of integration:
+  * For Python notebooks, the book provides two kinds of integration:
   Binder and Google Colab. When the book shows one of those file you
   will see corresponding icons on the top of the page.
 
