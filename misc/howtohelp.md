@@ -1,18 +1,18 @@
 How To Help
 ===========
 
-This book is created with Jupyter books.
-
-To understand the basic of Jupyter books skim through this page
-
-  <a href="https://jupyterbook.org/start/overview.html">https://jupyterbook.org/start/overview.html</a>
-
-
-As mentioned before the source of this book is at
+The source of this book is at
 
   <a href="https://github.com/damorimRG/practical_testing_book">https://github.com/damorimRG/practical_testing_book</a>
 
 Essentials:
+
+* To contribute, you need to file a Pull Request so that we have the
+  chance to review your contributions.
+
+* This book is created with Jupyter books. To understand the basic of
+  Jupyter books skim through <a
+  href="https://jupyterbook.org/start/overview.html">this page</a>.
 
 * Two file formats can be used: .md and .pynb. The first is the
   typical markdown files whereas the later are Python (Jupyter)
@@ -22,10 +22,11 @@ Essentials:
   Binder and Google Colab. When the book shows one of those file you
   will see corresponding icons on the top of the page.
 
-* There are two basic scripts on the repo: build.sh and deploy.sh. The
-  first script builds the static web site whereas the second script
-  deploys it (although you won't be able to run it).
+* There are two scripts on the repo that you should know: build.sh and
+  deploy.sh. The first script builds the static web site (under
+  directory _build) whereas the second script deploys it in a GitHub
+  page branch (gh-pages). Remember that you won't be able to push
+  things to the repo (only submit PRs).
 
-* To contribute, you need to file a Pull Request so that we can review
-  your contributions.
+
 

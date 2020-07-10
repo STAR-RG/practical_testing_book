@@ -1,5 +1,5 @@
-The Practical Testing Book
-==========================
+Intro
+=====
 
 This is a book about Software Testing developed by the community to the community.
 
