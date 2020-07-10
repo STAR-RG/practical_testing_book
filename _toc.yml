@@ -1,9 +1,7 @@
 #https://jupyterbook.org/customize/toc.html
 
 - file: intro
-
-- header: Welcome!
-- file: welcome
+- file: principles
 
 - header: Fundamentals
 - file: basics
@@ -23,5 +21,5 @@
 
 - header: Misc
 - file: misc/credits
-- file: misc/howto
+- file: misc/howtohelp
 - file: misc/tobedone
