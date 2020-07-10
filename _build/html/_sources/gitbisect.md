@@ -1,2 +1,0 @@
-Hands On: Git Bisect
-====================
