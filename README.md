@@ -1,19 +1,8 @@
-# practical_testing_book
+# The Practical Testing Book
 
-To build:
+This is the repository of a book on testing developed by the community
+to the community. Please engage to improve it, and advertize it.
 
-```
-./build.sh
-```
+To build pages: ```$> ./build.sh```
 
-Publish gh-pages:
-
-First install: 
-```
-sudo pip3 install ghp-import
-```
-
-Publishing:
-```
-ghp-import -n -p -f _build/html
-```
+To deploy site: ```$> ./deploy.sh```
