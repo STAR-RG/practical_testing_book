@@ -5,6 +5,7 @@
 
 - header: Fundamentals
 - file: basics
+- file: limitations
 - file: kinds
 - file: unittest
 - file: infrastructure

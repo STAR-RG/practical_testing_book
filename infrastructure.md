@@ -1,9 +1,11 @@
 Infrastructure
 ==============
 
-Test automation is very important. We detail below tools that are critical today to automate testing.
+Test automation is important.
+
+We detail below tools that are critical today to automate testing.
 
 * Build Systems
-* Continuous Integration (CI)
+* Version Constrol Systems (VCS) and Continuous Integration (CI)
 
 --- ...
