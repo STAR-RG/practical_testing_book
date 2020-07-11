@@ -15,9 +15,9 @@
 - file: selenium
 
 - header: Debugging
-- file: scientific
-- file: gitbisect
-- file: deltadebugging
+- file: debugging/scientific
+- file: debugging/gitbisect
+- file: debugging/deltadebugging
 
 - header: Misc
 - file: misc/credits
