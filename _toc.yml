@@ -5,10 +5,9 @@
 
 - header: Fundamentals
 - file: basics
-- file: unittest
-
-- header: The Different Kinds of Testing
 - file: kinds
+- file: unittest
+- file: infrastructure
 
 - header: System Testing
 - file: ui
