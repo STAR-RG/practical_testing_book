@@ -1,11 +1,17 @@
 How To Help
 ===========
 
-The source of this book is at
+The sources of this book are at two different locations:
+
+This is the repo for the demos:
+
+  <a href="https://github.com/damorimRG/practical_testing_book_demos">https://github.com/damorimRG/practical_testing_book_demos</a>
+
+and this is the repo of the book itself:
 
   <a href="https://github.com/damorimRG/practical_testing_book">https://github.com/damorimRG/practical_testing_book</a>
 
-Essentials:
+Essentials about editing the book:
 
 * To contribute, you need to file a Pull Request so that we have the
   chance to review your contributions.

@@ -1,7 +1,7 @@
-Intro
-=====
+Introduction
+============
 
-This is a book about Software Testing developed by the community to the community.
+This is a book about Software Testing developed by the community [[TODO: refer to suggestion box here!]] to the community.
 
 For the reader, please move on to the <a href="principles.html">next page</a> to check our key principles.
 
