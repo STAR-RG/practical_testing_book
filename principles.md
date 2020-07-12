@@ -1,9 +1,9 @@
 Principles of this Book
 =======================
 
-The key principles of this book are:
+We chose the word "Practical" in the title of this book because we
+strongly believe in the power of practicing. We expect the reader to
+learn Software Testing by practicing Software Testing concepts with
+tutorials, demos, quizzes, and exercises. 
 
-* to be minimalist, i.e., avoid using lots of text.
-* to be interactive, i.e., use videos and tutorials.
-* to be hands on, i.e., using lots of concrete running examples.
 
