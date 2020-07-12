@@ -1,7 +1,7 @@
 # The Practical Testing Book
 
 This is the repository of a book on testing developed by the community
-to the community. Please engage to improve it, and advertize it.
+to the community. Please engage to improve it, and advertise it.
 
 To build pages: ```$> ./build.sh```
 
