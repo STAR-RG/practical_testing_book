@@ -7,9 +7,9 @@ practicing for learning. We expect the reader to learn Software
 Testing by practicing with tutorials, demos, quizzes, and exercises.
 
 This book is developed by the community [[TODO: refer to suggestion
-box here!]] to the community
+box here!]] to the community.
 
-For the reader, please move on to the <a href="principles.html">next page</a> to check our key principles.
+For the reader, please move on to <a href="fundamentals/basics.md">the next chapter</a>.
 
 For the contributor:
 
