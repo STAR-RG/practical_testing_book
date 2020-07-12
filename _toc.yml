@@ -4,10 +4,9 @@
 - file: principles
 
 - header: Fundamentals
-- file: basics
-- file: limitations
-- file: kinds
-- file: infrastructure
+- file: fundamentals/basics
+- file: fundamentals/limitations
+- file: fundamentals/kinds
 
 - header: Test Granularity
 - file: testgranularity/unittesting
@@ -25,6 +24,12 @@
 - file: testgeneration/combinatorial
 - file: testgeneration/random
 - file: testgeneration/fuzzing
+
+- header: Regression Testing
+- file: testregression/buildsystems
+- file: testregression/continuousintegration
+- file: testregression/flakytests
+- file: testregression/selectionprio
 
 - header: Debugging
 - file: debugging/scientific
