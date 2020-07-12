@@ -1,7 +1,13 @@
 Introduction
 ============
 
-This is a book about Software Testing developed by the community [[TODO: refer to suggestion box here!]] to the community.
+This is a book about Software Testing.  We chose the word “Practical”
+for the title of this book because we strongly believe in the power of
+practicing for learning. We expect the reader to learn Software
+Testing by practicing with tutorials, demos, quizzes, and exercises.
+
+This book is developed by the community [[TODO: refer to suggestion
+box here!]] to the community
 
 For the reader, please move on to the <a href="principles.html">next page</a> to check our key principles.
 
