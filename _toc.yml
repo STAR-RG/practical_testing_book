@@ -1,7 +1,6 @@
 #https://jupyterbook.org/customize/toc.html
 
 - file: intro
-- file: principles
 
 - header: Fundamentals
 - file: fundamentals/basics
