@@ -7,12 +7,24 @@
 - file: basics
 - file: limitations
 - file: kinds
-- file: unittest
 - file: infrastructure
 
-- header: System Testing
-- file: ui
-- file: selenium
+- header: Test Granularity
+- file: testgranularity/unittesting
+- file: testgranularity/integrationtesting
+- file: testgranularity/systemtesting
+- file: testgranularity/acceptancetesting
+
+- header: Test Adequacy
+- file: testadequacy/idea
+- file: testadequacy/coverage
+- file: testadequacy/mutation
+
+- header: Test Generation
+- file: testgeneration/modelbased
+- file: testgeneration/combinatorial
+- file: testgeneration/random
+- file: testgeneration/fuzzing
 
 - header: Debugging
 - file: debugging/scientific
