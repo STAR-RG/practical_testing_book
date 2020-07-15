@@ -9,7 +9,7 @@ Testing by practicing with tutorials, demos, quizzes, and exercises.
 This book is developed by the community [[TODO: refer to suggestion
 box here!]] to the community.
 
-For the reader, please move on to <a href="fundamentals/basics.md">the next chapter</a>.
+For the reader, please move on to <a href="fundamentals/basics.html">the next chapter</a>.
 
 For the contributor:
 
