@@ -39,7 +39,7 @@
 - file: mocking/basics
 - file: mocking/notebook
 
-- header: Test coverage
+- header: Test Coverage
 - file: coverage
 
 - header: Misc
