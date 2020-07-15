@@ -39,9 +39,6 @@
 - file: mocking/basics
 - file: mocking/notebook
 
-- header: Code Coverage
-- file: coverage
-
 - header: Misc
 - file: misc/credits
 - file: misc/howtohelp
