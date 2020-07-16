@@ -23,6 +23,7 @@
 - file: testgeneration/combinatorial
 - file: testgeneration/random
 - file: testgeneration/fuzzing
+- file: testgeneration/propertybased
 
 - header: Regression Testing
 - file: testregression/buildsystems
@@ -38,9 +39,6 @@
 - header: Mocking
 - file: mocking/basics
 - file: mocking/notebook
-
-- header: Test coverage
-- file: coverage
 
 - header: Misc
 - file: misc/credits
