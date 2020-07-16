@@ -23,6 +23,7 @@
 - file: testgeneration/combinatorial
 - file: testgeneration/random
 - file: testgeneration/fuzzing
+- file: testgeneration/propertybased
 
 - header: Regression Testing
 - file: testregression/buildsystems
