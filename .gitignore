@@ -2,3 +2,6 @@
 .idea/
 _build
 env/
+testadequacy/htmlcov
+testadequacy/__pycache__
+testadequacy/.coverage
