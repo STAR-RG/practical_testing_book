@@ -10,6 +10,8 @@
 - header: Test Granularity
 - file: testgranularity/unittesting
 - file: testgranularity/integrationtesting
+  sections:
+    - file: testgranularity/mocking.ipynb
 - file: testgranularity/systemtesting
 - file: testgranularity/acceptancetesting
 
