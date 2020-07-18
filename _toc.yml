@@ -18,6 +18,7 @@
 - header: Test Adequacy
 - file: testadequacy/idea
 - file: testadequacy/coverage
+- file: testadequacy/tdd
 - file: testadequacy/mutation
 
 - header: Test Generation
