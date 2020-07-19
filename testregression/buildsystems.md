@@ -7,70 +7,11 @@ The automation process of generating the build can include several different pro
 
 Gradle is an open source build automation tool, gradle stands out for its extremely versatility. Used by big tech companies, such as Netflix and Linkedin, it uses a Domains Specific Language (DSL) based on Groovy (there is limited support based on Kotlin as well). Gradle has a big list of features, some of these can help you improve your project build performance and dependency management.
 
-## Example Project
-In this tutorial we will use the project under the 2-build-gradle/binarysearch folder of the [book's repository](https://github.com/damorim/testing-cin). It's necessary to have a java version installed.
+## Exercise Time!
+Now it’s time to create your own project using Gradle as Builder. First, you need to clone [this repository](https://github.com/damorim/testing-cin) on your computer. This repo contains a lot of practical material used in this book. The section that we’ll use is under the 2-build-gradle/binarysearch folder. 
 
-To start a simple project with the gradle, it is necessary to install the tool. As the referring repository already contains the gradlew executable, our job is simpler.
-
-To better understand the commands possible through gradlew, you can run the following command in the binarysearch folder:
-
-```
-./gradlew tasks
-```
-This command will display the list of Gradle execution options as a result.
-
-Looking closely at the options, we see that a Setup option. This would prepare the environment for the development of a new Gradle project. You can test this option in a new directory of your choice. For now, it is only necessary to copy the gradlew executable and the gradle directory (which contains files necessary for the gradle execution) to your test directory.
-
-Once in the new directory, execute the following command:
-```
-./gradlew init
-```
-
-From now on, the tool will guide you through the setup of your project. The first screen provided asks you to choose a type of project to create.
-
-```
-Select type of project to generate:
-  1: basic
-  2: application
-  3: library
-  4: Gradle plugin
-Enter selection (default: basic) [1..4]
-```
-
-For our example, we will use an application type project. Then, the language used in the development of the project is requested
-
-```
- Select implementation language:
-  1: C++
-  2: Groovy
-  3: Java
-  4: Kotlin
-  5: Swift
-Enter selection (default: Java) [1..5]
-```
-
-In our example, we will use the Java language. Then, the language used in the gradle settings is requested.
-
-```
-Select build script DSL:
-  1: Groovy
-  2: Kotlin
-Enter selection (default: Groovy) [1..2]
-```
-In our example, we will use the Groovy language. Then, we ask for the framework used for the tests, here is an important comment: the gradle also automates tests and the execution of tests in the project! We will explore this during this tutorial.
-
-```
-Select test framework:
-  1: JUnit 4
-  2: TestNG
-  3: Spock
-  4: JUnit Jupiter
-Enter selection (default: JUnit 4) [1..4]
-```
-
-In our example, we will use the JUnit 4 framework. Finally, you must provide the name of the project and the source package of your project, both of your choice.
-
-Once this process is finished, your directory will now be filled with a file structure that must be respected during the development of your project, so that the gradle can act effectively. We will highlight two elements created: the build.gradle file, where specifications of the build process are written that will be detailed later, and the src folder, which contains the project classes (main directory), and the test classes (in the test directory). Note that the gradle generated automatic java files to populate these directories. You can modify these files and add others according to the needs of your project.
+Feel free to create your own Gradle project following this tutorial:  
+[Example Project](./gradlesetup.md)
 
 However, we have already made a project available for us to do the analysis. It is a simple design of a Binary Search algorithm in an array with some test cases.
 
@@ -141,3 +82,6 @@ To execute this new task, we will only run the tests on the project. Running gra
 If you don't find that answer, the gradle may not have run the tests. This can happen because the tool exists precisely to avoid rework, so it analyzes the inputs and outputs of each task, if the inputs have not changed, it does not execute the task again, considering that it is up-to-date. If this is the case, just use the command gradle test `--rerun-tasks`, which forces the gradle to run the tasks again.
 
 Now we can see which tests were run and the results of each one. With a versatile tool such as Gradle you can write many different tasks that can help with your specific build automation, like the one above.
+
+## Proposed Exercise
+Now that you have finished this section, we suggest to you to create two new test cases for the BinarySearch project: One of them should fail and the other should pass. Then run the build process and analyse the result shown in your terminal.

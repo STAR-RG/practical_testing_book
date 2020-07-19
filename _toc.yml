@@ -30,6 +30,8 @@
 
 - header: Regression Testing
 - file: testregression/buildsystems
+  sections:
+    - file: testregression/gradlesetup
 - file: testregression/continuousintegration
 - file: testregression/flakytests
 - file: testregression/selectionprio
