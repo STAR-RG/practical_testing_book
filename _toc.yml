@@ -39,10 +39,6 @@
 - file: debugging/gitbisect
 - file: debugging/deltadebugging
 
-- header: Mocking
-- file: mocking/basics
-- file: mocking/notebook
-
 - header: Misc
 - file: misc/credits
 - file: misc/howtohelp
