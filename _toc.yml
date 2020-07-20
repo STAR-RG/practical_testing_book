@@ -20,6 +20,7 @@
 - file: testadequacy/coverage
 - file: testadequacy/tdd
 - file: testadequacy/mutation
+- file: testadequacy/mutpy
 
 - header: Test Generation
 - file: testgeneration/modelbased
