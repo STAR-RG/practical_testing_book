@@ -8,7 +8,7 @@ A way to overcome those limitations is by using Combinatorial Testing, a method 
 
 Combinatorial Testing produces high-quality testing at a lower cost because it provides a smarter way for testing using only a subset of the possible parameter combinations that still has the parameter values interaction. Also, combinatorial testing is a very simple technique to apply, as it is based on the specification, it is enough to specify a system's parameters and its possible values, and the combinatorial testing tool will generate an input set to test the system.
 
-### Choosing a degree of interaction "t"
+### Choosing a degree of interaction
 Constructing a Combinatorial Testing suite, we have to specify the input parameters and values, but there’s an important parameter we must think about: the degree of interaction. A degree of interaction t means that we want to test the t-way interaction of our parameters, that is, we want to test all combinations of t parameters.	
 
 Depending on the value chosen for "t", the process of generating the input can be more or less computationally complex but also can achieve more or less fault coverage. Increasing the value for "t" will increase the fault coverage, but also will increase the cost for generating and executing the tests, getting to a point that's almost no gain in coverage as the "t"  increases.
