@@ -12,3 +12,7 @@ Combinatorial Testing produces high-quality testing at a lower cost because it p
 Constructing a Combinatorial Testing suite, we have to specify the input parameters and values, but there’s an important parameter we must think about: the degree of interaction. A degree of interaction t means that we want to test the t-way interaction of our parameters, that is, we want to test all combinations of t parameters.	
 
 Depending on the value chosen for "t", the process of generating the input can be more or less computationally complex but also can achieve more or less fault coverage. Increasing the value for "t" will increase the fault coverage, but also will increase the cost for generating and executing the tests, getting to a point that's almost no gain in coverage as the "t"  increases.
+
+So, you would want to choose a degree of interaction that gives you an appropriate level of confidence but doesn't make the process of testing to costly. The creators of ACTS, a popular tool for combinatorial testing, have done research on the relation of the degree of interactions and software failures. They found that most of the bugs studied were caused by an interaction of at most 6 different parameters:
+
+![Most failures are triggered by one or two parameters interacting, with progressively fewer by 3, 4, or more.](../assets/interactions_chart.png)
