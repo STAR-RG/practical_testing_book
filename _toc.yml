@@ -24,6 +24,8 @@
 - header: Test Generation
 - file: testgeneration/modelbased
 - file: testgeneration/combinatorial
+  sections:
+    - file: testgeneration/combinatorial_handson.ipynb
 - file: testgeneration/random
 - file: testgeneration/fuzzing
 - file: testgeneration/propertybased
