@@ -1,19 +1,23 @@
 Acceptance Testing
 ==================
 
-## What is Acceptance Testing?
+![User Acceptance Testing](https://miro.medium.com/max/1400/1*6xiNn8J93ICa3fLSiSAPjA.png)
+
+## What is User Acceptance Testing (UAT) ?
 The final level of the tests' granularity is Acceptance Testing. Acceptance Testing has the purpose of evaluating the application and determine whether the software system has met the requirements specifications. It means that the test determines if the system is ready for release or not. 
 
 During this phase of testing, the user will test the system to find out whether the application meets their business needs. The results can give the customer the security that the application has the required features and behaves as expected. Resuming, acceptance tests represent the customer’s interests.
 
-## Benefits to Acceptance Tests 
-The preservation of those tests by running frequently and maintaining them update can deliver good results for a software development team, as:
-Validates that business requirements are met as defined in user stories
-Encourages closer collaboration between developers and client/stakeholders
-Reduces the risk of finding defects post-production and regression bugs
-Identify problems which unit or integration tests might have missed
+![Development Process vs Testing Strategies](https://ds6br8f5qp1u2.cloudfront.net/blog/wp-content/uploads/2015/06/types-uat-testing-2.png)
 
 There is a difference between acceptance tests and functional testing. The acceptance tests verify if the specific requirements are working for the user, it means, the costumer and the stakeholders have to agree on the product. On the other hand, the functional testing validates the specific requirements and specifications of the software, but does not mean that it actually work for the user. 
+
+## Benefits to Acceptance Tests 
+The preservation of those tests by running frequently and maintaining them update can deliver good results for a software development team, as:
+- Validates that business requirements are met as defined in user stories
+- Encourages closer collaboration between developers and client/stakeholders
+- Reduces the risk of finding defects post-production and regression bugs
+- Identify problems which unit or integration tests might have missed
 
 ## Types of Acceptance Testing
 - Following are the types of acceptance testing:
@@ -33,7 +37,7 @@ Alpha and Beta Testing are done before the software is released to all customers
 ### 2.Contract Acceptance Testing
 In contract acceptance testing, the software test has to meet the specifications and criteria defined and agreed previously in the contract. When the project team agrees to the contract, only the acceptance criteria and specifications are defined.
 
-#### 3.Regulation Acceptance Testing
+### 3.Regulation Acceptance Testing
 The regulation acceptance testing tests the developed software against certain rules and regulations. These are mainly governmental rules and regulations and compliance with these legal issues is absolutely necessary. It is also called compliance acceptance testing.
 
 ### 4.Operational Acceptance Testing
