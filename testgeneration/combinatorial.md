@@ -13,6 +13,15 @@ Constructing a Combinatorial Testing suite, we have to specify the input paramet
 
 Depending on the value chosen for "t", the process of generating the input can be more or less computationally complex but also can achieve more or less fault coverage. Increasing the value for "t" will increase the fault coverage, but also will increase the cost for generating and executing the tests, getting to a point that's almost no gain in coverage as the "t"  increases.
 
-So, you would want to choose a degree of interaction that gives you an appropriate level of confidence but doesn't make the process of testing to costly. The creators of ACTS, a popular tool for combinatorial testing, have done research on the relation of the degree of interactions and software failures. They found that most of the bugs studied were caused by an interaction of at most 6 different parameters:
+So, you would want to choose a degree of interaction that gives you an appropriate level of confidence but doesn't make the process of testing to costly. The creators of ACTS, a popular tool for combinatorial testing, have done research on the relation of the degree of interactions and software failures. They found that most of the bugs studied were caused by an interaction of at most 6 different parameters {cite}`actscombinatorial`:
 
-![Most failures are triggered by one or two parameters interacting, with progressively fewer by 3, 4, or more.](../assets/interactions_chart.png)
+```{figure} ../assets/interactions_chart.png
+---
+name: my-figure
+---
+Most failures are triggered by one or two parameters interacting, with progressively fewer by 3, 4, or more {cite}`actscombinatorial`.
+```
+
+### References
+```{bibliography} ../references.bib
+```
