@@ -20,7 +20,5 @@ The book can be edited by *anyone* willing to make a Pull Request (PR) to the fo
 If you are seriously interested in helping this effort, please take a look at the following link:
 
   <a href="misc/howtohelp.html">How To Help</a>
-  
-:)
 
 ---add copyright and other bs---
