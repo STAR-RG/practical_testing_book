@@ -21,5 +21,4 @@ If you are seriously interested in helping this effort, please take a look at th
 
   <a href="misc/howtohelp.html">How To Help</a>
 
-
 ---add copyright and other bs---
