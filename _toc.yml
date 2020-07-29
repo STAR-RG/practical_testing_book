@@ -13,7 +13,7 @@
   sections:
     - file: testgranularity/mocking.ipynb
 - file: testgranularity/systemtesting
-- file: testgranularity/acceptancetesting
+- file: testgranularity/acceptancetesting/acceptancetesting.ipynb
 
 - header: Test Adequacy
 - file: testadequacy/idea
