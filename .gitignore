@@ -6,5 +6,5 @@ testadequacy/htmlcov
 testadequacy/__pycache__
 testadequacy/.coverage
 testadequacy/area.py
-testadequacy/tests1.py
-testadequacy/tests2.py
+testadequacy/tests.py
+

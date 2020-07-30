@@ -108,4 +108,5 @@ Good materials on Mutation testing can be found in the literature, some of which
 
 For a more constructive practice, let's hands on at Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testadequacy/mutation.ipynb)
+<a href="https://github.com/damorimRG/practical_testing_book/blob/master/testadequacy/mutation.ipynb" target="_blank"> 
+    <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a>
