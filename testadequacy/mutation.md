@@ -107,4 +107,5 @@ Good materials on Mutation testing can be found in the literature, some of which
 > [MutPy](https://pypi.org/project/MutPy/) is a mutation testing tool for Python 3.3+ source code. MutPy supports standard unittest module, generates YAML/HTML reports and has colorful output. It applies mutation on AST level. You could boost your mutation testing process with high order mutations (HOM) and code coverage analysis.
 
 For a more constructive practice, let's hands on at Colab:
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]()
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/damorimRG/practical_testing_book/blob/master/testadequacy/mutation.ipynb)
