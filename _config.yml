@@ -15,8 +15,8 @@ latex:
   latex_documents:
     targetname: book.tex
     
-exclude_patterns: [pattern1/*, fundamentals/README.md]
-#exclude_patterns: [pattern1/*, fundamentals/README.md,testgranularity/acceptancetesting.md]
+exclude_patterns: [pattern1/*, fundamentals/README.md, testgranularity/robot.ipynb]
+#exclude_patterns: [pattern1/*, fundamentals/README.mdmd, testgranularity/robot.ipynb, testgranularity/acceptancetesting.md]
 
 execute:
   execute_notebooks: 'off'
