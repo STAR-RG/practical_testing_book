@@ -1,46 +1,55 @@
 #https://jupyterbook.org/customize/toc.html
 
 - file: intro
+  numbered: false
+  expand_sections: false
 
-- header: Fundamentals
-- file: fundamentals/basics
-- file: fundamentals/limitations
-- file: fundamentals/kinds
-
-- header: Test Granularity
-- file: testgranularity/unittesting
-- file: testgranularity/integrationtesting
+- chapter: Fundamentals
   sections:
-    - file: testgranularity/mocking.ipynb
-- file: testgranularity/systemtesting
-- file: testgranularity/acceptancetesting/acceptancetesting.ipynb
+  - file: fundamentals/basics
+  - file: fundamentals/limitations
+  - file: fundamentals/kinds
 
-- header: Test Adequacy
-- file: testadequacy/idea
-- file: testadequacy/coverage
-- file: testadequacy/mutation
-
-- header: Test Generation
-- file: testgeneration/modelbased
-- file: testgeneration/combinatorial.ipynb
-- file: testgeneration/random
-- file: testgeneration/fuzzing
-- file: testgeneration/propertybased
-
-- header: Regression Testing
-- file: testregression/buildsystems
+- chapter: Test Granularity
   sections:
-    - file: testregression/gradlesetup
-- file: testregression/continuousintegration
-- file: testregression/flakytests
-- file: testregression/selectionprio
+  - file: testgranularity/unittesting
+  - file: testgranularity/integrationtesting
+    sections:
+      - file: testgranularity/mocking.ipynb
+  - file: testgranularity/systemtesting
+  - file: testgranularity/acceptancetesting/acceptancetesting.ipynb
 
-- header: Debugging
-- file: debugging/scientific
-- file: debugging/gitbisect
-- file: debugging/deltadebugging
+- chapter: Test Adequacy
+  sections:
+  - file: testadequacy/idea
+  - file: testadequacy/coverage
+  - file: testadequacy/mutation
 
-- header: Misc
-- file: misc/credits
-- file: misc/howtohelp
-- file: misc/tobedone
+- chapter: Test Generation
+  sections:
+  - file: testgeneration/modelbased
+  - file: testgeneration/combinatorial.ipynb
+  - file: testgeneration/random
+  - file: testgeneration/fuzzing
+  - file: testgeneration/propertybased
+
+- chapter: Regression Testing
+  sections:
+  - file: testregression/buildsystems
+    sections:
+      - file: testregression/gradlesetup
+  - file: testregression/continuousintegration
+  - file: testregression/flakytests
+  - file: testregression/selectionprio
+
+- chapter: Debugging
+  sections:
+  - file: debugging/scientific
+  - file: debugging/gitbisect
+  - file: debugging/deltadebugging
+
+- chapter: Misc
+  sections:
+  - file: misc/credits
+  - file: misc/howtohelp
+  - file: misc/tobedone
