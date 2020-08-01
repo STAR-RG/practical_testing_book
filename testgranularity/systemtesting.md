@@ -63,8 +63,9 @@ This keyword precedes the description of the functionality or test scenario. Be 
 A simpler label for the scenario, if you want or need to run only one or a few cases. You can do this by calling the title of the scenarios on the command line, but as they are usually large, tags end up being the best option overall.
 
 ### Spaces and Variables
-The variables in the Robot are represented by ${variable}. The Robot has the peculiarity of ignoring a space between words. 
-*${variable_name}* is equal to ${variable name}. They are also case insensitive. The arguments are divided into at least two spaces. For example:
+The variables in the Robot are represented by $ {variable}. The Robot has the peculiarity of ignoring a space between words.
+
+$ {variable_name} is equal to $ {variable name}. They are also case insensitive. The arguments are divided into at least two spaces. For example:
 
 * command (two spaces) argument1 (two spaces) argument 2.
 
