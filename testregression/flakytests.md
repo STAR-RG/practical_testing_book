@@ -35,16 +35,15 @@ Once a test is tagged as flaky and data about its execution is collected, you ca
 
 ## References
 
-1.   https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html
-2.   https://talkingabouttesting.com/2017/01/04/a-importancia-de-lidar-com-testes-flaky/
-3. https://talkingabouttesting.com/tag/flaky-tests/
-4. https://whatis.techtarget.com/definition/flaky-test
-5. https://medium.com/hackernoon/flaky-tests-a-war-that-never-ends-9aa32fdef359
-7. https://engineering.salesforce.com/flaky-tests-and-how-to-avoid-them-25b84b756f60
-8. https://medium.com/monsterculture/reproduce-flaky-tests-b8b42306d23f
-9. https://engsoftmoderna.info/cap8.html
-10. https://imasters.com.br/desenvolvimento/qa-ci-flaky-tests-e-confiabilidade-para-devs
-11. https://medium.com/scopedev/how-can-we-peacefully-co-exist-with-flaky-tests-3c8f94fba166
-12. https://arxiv.org/pdf/1907.01466.pdf
-13. https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html
-"""
+1. [https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html](https://docs.gitlab.com/ee/development/testing_guide/flaky_tests.html)
+2. [https://talkingabouttesting.com/2017/01/04/a-importancia-de-lidar-com-testes-flaky/](https://talkingabouttesting.com/2017/01/04/a-importancia-de-lidar-com-testes-flaky/)
+3. [https://talkingabouttesting.com/tag/flaky-tests/](https://talkingabouttesting.com/tag/flaky-tests/)
+4. [https://whatis.techtarget.com/definition/flaky-test](https://whatis.techtarget.com/definition/flaky-test)
+5. [https://medium.com/hackernoon/flaky-tests-a-war-that-never-ends-9aa32fdef359](https://medium.com/hackernoon/flaky-tests-a-war-that-never-ends-9aa32fdef359)
+7. [https://engineering.salesforce.com/flaky-tests-and-how-to-avoid-them-25b84b756f60](https://engineering.salesforce.com/flaky-tests-and-how-to-avoid-them-25b84b756f60)
+8. [https://medium.com/monsterculture/reproduce-flaky-tests-b8b42306d23f](https://medium.com/monsterculture/reproduce-flaky-tests-b8b42306d23f)
+9. [https://engsoftmoderna.info/cap8.html](https://engsoftmoderna.info/cap8.html)
+10. [https://imasters.com.br/desenvolvimento/qa-ci-flaky-tests-e-confiabilidade-para-devs](https://imasters.com.br/desenvolvimento/qa-ci-flaky-tests-e-confiabilidade-para-devs)
+11. [https://medium.com/scopedev/how-can-we-peacefully-co-exist-with-flaky-tests-3c8f94fba166](https://medium.com/scopedev/how-can-we-peacefully-co-exist-with-flaky-tests-3c8f94fba166)
+12. [https://arxiv.org/pdf/1907.01466.pdf](https://arxiv.org/pdf/1907.01466.pdf)
+13. [https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html)
