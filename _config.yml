@@ -14,3 +14,6 @@ launch_buttons:
 latex:
   latex_documents:
     targetname: book.tex
+    
+exclude_patterns: [pattern1/*, fundamentals/README.md]
+#exclude_patterns: [pattern1/*, fundamentals/README.md,testgranularity/acceptancetesting.md]
