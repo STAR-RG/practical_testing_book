@@ -17,3 +17,6 @@ latex:
     
 exclude_patterns: [pattern1/*, fundamentals/README.md]
 #exclude_patterns: [pattern1/*, fundamentals/README.md,testgranularity/acceptancetesting.md]
+
+execute:
+  execute_notebooks: 'off'
