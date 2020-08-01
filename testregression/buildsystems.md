@@ -1,13 +1,15 @@
-## Build Systems
+Build Systems
+================
+
 The purpose of a Build Systems is to automate the process of generating a software build. But what exactly is a build? According to Wikipedia [“a build is the process of converting source code files into standalone software artifact(s) that can be run on a computer"](https://en.wikipedia.org/wiki/Software_build#:~:text=In%20software%20development%2C%20a%20build,the%20result%20of%20doing%20so.).
 
 The automation process of generating the build can include several different processes, such as: compiling source code into binary, packaging binary code, and running automated tests to detect errors. There is no universal tool that can be used across multiple technologies, some of which specialize in small parts of the process. Here we use one of those general tools, called Gradle.
 
-### Getting Started With Gradle
+## Getting Started With Gradle
 
 Gradle is an open source build automation tool, gradle stands out for its extremely versatility. Used by big tech companies, such as Netflix and Linkedin, it uses a Domains Specific Language (DSL) based on Groovy (there is limited support based on Kotlin as well). Gradle has a big list of features, some of these can help you improve your project build performance and dependency management.
 
-### Exercise Time!
+## Exercise Time!
 Now it’s time to create your own project using Gradle as Builder. First, you need to clone [this repository](https://github.com/damorim/testing-cin) on your computer. This repo contains a lot of practical material used in this book. The section that we’ll use is under the 2-build-gradle/binarysearch folder. 
 
 Feel free to create your own Gradle project following this tutorial:  
@@ -15,7 +17,7 @@ Feel free to create your own Gradle project following this tutorial:
 
 However, we have already made a project available for us to do the analysis. It is a simple design of a Binary Search algorithm in an array with some test cases.
 
-### The Build file
+## The Build file
 When executing a build through the gradle, the tool will look for instructions on what should be done during it. Each phase, or order, performed is called a task (as we have already shown above) and these tasks are described in the build.gradle file, which is located in the root folder of the repository.
 
 In the file provided, you will find some code to perform a simple build of the project:
@@ -52,19 +54,19 @@ application {
 
 Finally, it is specified which project file the main class is in.
 
-### The project’s code
+## The project’s code
 The project classes, as well as the test classes, are located, by default, below the src directory. The only class of this project is in the main directory and it is a simple Binarysearch algorithm in arrays.
 
 The only test class is found in the test directory and there are some test cases for the algorithm described in the design class. The code is written using the JUnit framework and tests some expected results from certain input cases.
 
-### Compiling the project
+## Compiling the project
 Now that you know where the project is, we can move on to the build process. In the root folder, type in the terminal:
 ```
 ./gradlew build
 ```
 After a few seconds, Gradle will have configured all the dependencies, compiled the project and applied the tests. The test results can be found in the HTML file found in the new build directory, which is now located in the root folder. Within this new directory are configuration files, temporary files, binaries used in the compilation and the test results (in the reports folder). The index.html file presents, in a very intuitive way, the test results for each package and class of the project. If any test fails, the file will show the entire stack of the failed test execution
 
-### Testing the Code
+## Testing the Code
 To improve the display of tests in the terminal, you can also add one more task to your build file. The task code is as follows:
 
 ```
@@ -83,5 +85,5 @@ If you don't find that answer, the gradle may not have run the tests. This can h
 
 Now we can see which tests were run and the results of each one. With a versatile tool such as Gradle you can write many different tasks that can help with your specific build automation, like the one above.
 
-### Proposed Exercise
+## Proposed Exercise
 Now that you have finished this section, we suggest to you to create two new test cases for the BinarySearch project: One of them should fail and the other should pass. Then run the build process and analyse the result shown in your terminal.

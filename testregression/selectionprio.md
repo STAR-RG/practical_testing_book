@@ -1,8 +1,9 @@
-#### Test Selection and Prioritization
+Test Selection and Prioritization
+================
 
 Testing can take a large part of the development time and be expensive to create and execute, so It's also a job of to the developers to choose which tests should be done first and which method could used to test a specific part of your code. With a good skill on test selection a developer can assure quality software and cut the costs associated with the testing phase. 
 
-###### Test Case Selection
+## Test Case Selection
 
 Testing every case of a specific software can be really impractical since even for small parts of a program the number of possible inputs can be enormous. For this reason we should choose very carefully which cases to use while testing our applications and always trying to achieve the fault detection. 
 
@@ -17,7 +18,7 @@ There are three approaches we could use for choosing test cases for a program, a
 
 Using this heuristics we can make tests that and fast to build and execute but still maintaining a high level of fault detection. 
 
-###### Regression Test Selection
+## Regression Test Selection
 
 Regression testing selection is the process of choosing which of the tests created for our application will be executed for this purpose. Our goal is to choose a small amount of the already existing scenarios but still serving the purpose for retesting the already existing features. Choosing which tests to use during our regression tests is a process that should involve finding the application's most affected pieces by the change and also test cases for critical parts of the program.
 
@@ -30,7 +31,7 @@ This process can be executed following three techniques:
 1. Safe technique.
    * Executes the most tests possible that inputs different data to the modified method.
 
-###### Test Prioritization
+## Test Prioritization
  
 Regression test is performed alongside software development to guarantee that new changes don’t affect the behavior of unchanged code. Having a good test-case suite that covers the software as a whole can be challenging and costly, as you can have a large suite and running all of them may take a while.
 
@@ -73,7 +74,7 @@ Using these criteria, we can list some prioritization techniques:
     2. Additional fault-exposing-potential prioritization
         * Same approach as Total fault-exposing-potential, but after choosing a test case, the process lower the points for other test cases that cover the same statements.
 
-###### References
+## References
  - [Testomat Guideline for Test Prioritization and Test Selection](https://itea3.org/project/workpackage/document/download/6194/Booklet%20v1.2%20-%20Guideline%20for%20Test%20Prioritization%20and%20Test%20Selection.pdf)
  - [Gregg Rothermel, Ronal H. Untch, Chengyun Chu, Mary Jean Harrold, “Test Case Prioritization: An Empirical Study, UK”, Proceedings of the International Conference on Software Maintenance, Oxford, September 1999](http://cse.unl.edu/~grother/papers/icsm99.pdf)
  - [Ahlam Ansaria, Anam Khanb, Alisha Khanc, Konain Mukadam, “Optimized Regression Test using Test Case Prioritization”, 7th International Conference on Communication, Computing and Virtualization 2016](https://core.ac.uk/download/pdf/82192235.pdf)

@@ -1,4 +1,6 @@
-## Example Project
+Example Project
+================
+
 First you have to create a new directory on your computer where the project will be set up. Once in this directory, execute the following command:
 
 ```
