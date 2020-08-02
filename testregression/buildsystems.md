@@ -1,7 +1,7 @@
 Build Systems
 ================
 
-The purpose of a Build System is to automate the process of generating a software build. But what exactly is a build? According to Wikipedia In a simplified way, build is the process that involves compiling the source code of a computer program into binary files that are executed by the computer. At this stage, the build system also handles tasks such as managing project dependencies. After compilation, some projects also test the code using the test classes written by the developers to ensure that the code is ready and correct.
+The purpose of a Build System is to automate the process of generating a software build. But what exactly is a build? In a simplified way, build is the process that involves compiling the source code of a computer program into binary files that are executed by the computer. At this stage, the build system also handles tasks such as managing project dependencies. After compilation, some projects also test the code using the test classes written by the developers to ensure that the code is ready and correct.
 
 The automation process of generating the build can include several different processes, as we mentioned: compiling source code into binary, packaging binary code, and running automated tests to detect errors. There is no universal tool that can be used across multiple technologies, some of which specialize in small parts of the process. Here we use one of those general tools, called Gradle.
 
