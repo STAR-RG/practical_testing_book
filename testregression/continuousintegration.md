@@ -25,4 +25,6 @@ It makes the team more productive once the CI process is all made automatically.
 - [CircleCI](https://circleci.com/)
 - [TravisCI](https://travis-ci.org/)
 - [Jenkins](https://www.jenkins.io/)
+- [GitHub Actions](https://github.com/features/actions)
 
+For a simple demonstration of integrating TravisCI into your GitHub code, watch this [short video](https://www.youtube.com/watch?v=FEXY1ZP-sBs) from the Onwwward channel on Youtube
