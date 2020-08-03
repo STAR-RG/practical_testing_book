@@ -102,7 +102,7 @@ Some of this operators will be shown on 'Hands On: MutPy' section.
 Good materials on Mutation testing can be found in the literature, some of which were used as the basis for the elaboration of this chapter, such as the survey published by [Jia and Harman (2011)](https://ieeexplore.ieee.org/abstract/document/5487526), [Ma and Offutt (2005)](https://courses.cs.ut.ee/MTAT.03.159/2015_spring/uploads/Main/mutopsMethod.pdf) and [Dereziska and Halas (2014)](https://ieeexplore.ieee.org/abstract/document/6825653) publications that also talk about mutation operators, among other works such as those by [Madeyski et al (2014)](https://ieeexplore.ieee.org/abstract/document/6613487), [Frankl et al (1997)](https://www.sciencedirect.com/science/article/pii/S0164121296001549), and [Papadakis et al (2019)](https://www.sciencedirect.com/science/article/pii/S0065245818300305).
 
 
-# Hands On: MutPy
+## Hands On: MutPy
  
 > [MutPy](https://pypi.org/project/MutPy/) is a mutation testing tool for Python 3.3+ source code. MutPy supports standard unittest module, generates YAML/HTML reports and has colorful output. It applies mutation on AST level. You could boost your mutation testing process with high order mutations (HOM) and code coverage analysis.
 
