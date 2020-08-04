@@ -99,8 +99,7 @@ Some of this operators will be shown on 'Hands On: MutPy' section.
 
 ## Background
 
-Good materials on Mutation testing can be found in the literature, some of which were used as the basis for the elaboration of this chapter, such as the survey published by [Jia and Harman (2011)](https://ieeexplore.ieee.org/abstract/document/5487526), [Ma and Offutt (2005)](https://courses.cs.ut.ee/MTAT.03.159/2015_spring/uploads/Main/mutopsMethod.pdf) and [Dereziska and Halas (2014)](https://ieeexplore.ieee.org/abstract/document/6825653) publications that also talk about mutation operators, among other works such as those by [Madeyski et al (2014)](https://ieeexplore.ieee.org/abstract/document/6613487), [Frankl et al (1997)](https://www.sciencedirect.com/science/article/pii/S0164121296001549), and [Papadakis et al (2019)](https://www.sciencedirect.com/science/article/pii/S0065245818300305).
-
+Good materials on Mutation testing can be found in the literature, some of which were used as the basis for the elaboration of this chapter, such as the survey published by Jia and Harman (2011){cite}`5487526`, Ma and Offutt (2005){cite}`ma2005description` and Dereziska and Halas (2014){cite}`6825653` publications that also talk about mutation operators, among other works such as those by Madeyski et al (2014){cite}`6613487`, Frankl et al (1997){cite}`frankl1997all`, and Papadakis et al (2019){cite}`papadakis2019chapter`.
 
 ## Hands On: MutPy
  
@@ -110,3 +109,7 @@ For a more constructive practice, let's hands on at Colab:
 
 <a href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testadequacy/mutation.ipynb" target="_blank"> 
     <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a>
+
+## References
+```{bibliography} ../references.bib
+```
