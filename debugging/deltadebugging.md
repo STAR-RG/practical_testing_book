@@ -1,3 +1,0 @@
-Hands On: Delta Debugging
-=========================
-
