@@ -175,7 +175,3 @@ This command will run the test suite and generate screenshots and files with all
 >
 >To encourage you, I challenge you to create a test that opens firefox browser, go to {cite}`robotorg` robotframework.org and capture a screenshot of the home screen.
 ---
-
-## References
-```{bibliography} ../references.bib
-```

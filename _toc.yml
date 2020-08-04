@@ -48,6 +48,10 @@
   - file: debugging/gitbisect
   - file: debugging/deltadebugging
 
+- chapter: Bibliography
+  sections:
+  - file: bibliography/bibliography
+
 - chapter: Misc
   sections:
   - file: misc/credits
