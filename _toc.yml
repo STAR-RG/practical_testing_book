@@ -6,54 +6,56 @@
 
 - chapter: Fundamentals
   sections:
-  - file: fundamentals/basics
-  - file: fundamentals/limitations
-  - file: fundamentals/kinds
+    - file: fundamentals/basics
+    - file: fundamentals/limitations
+    - file: fundamentals/kinds
 
 - chapter: Test Granularity
   sections:
-  - file: testgranularity/unittesting
-  - file: testgranularity/integrationtesting
-    sections:
-      - file: testgranularity/mocking.ipynb
-  - file: testgranularity/systemtesting
-  - file: testgranularity/acceptancetesting/acceptancetesting.ipynb
+    - file: testgranularity/unittesting
+      sections:
+        - file: testgranularity/organization_of_unit_tests.ipynb
+    - file: testgranularity/integrationtesting
+      sections:
+        - file: testgranularity/mocking.ipynb
+    - file: testgranularity/systemtesting
+    - file: testgranularity/acceptancetesting/acceptancetesting.ipynb
 
 - chapter: Test Adequacy
   sections:
-  - file: testadequacy/idea
-  - file: testadequacy/coverage
-  - file: testadequacy/mutation
+    - file: testadequacy/idea
+    - file: testadequacy/coverage
+    - file: testadequacy/mutation
 
 - chapter: Test Generation
   sections:
-  - file: testgeneration/modelbased
-  - file: testgeneration/combinatorial.ipynb
-  - file: testgeneration/random
-  - file: testgeneration/fuzzing
-  - file: testgeneration/propertybased
+    - file: testgeneration/modelbased
+    - file: testgeneration/combinatorial.ipynb
+    - file: testgeneration/random
+    - file: testgeneration/fuzzing
+    - file: testgeneration/propertybased
 
 - chapter: Regression Testing
   sections:
-  - file: testregression/buildsystems
-    sections:
-      - file: testregression/gradlesetup
-  - file: testregression/continuousintegration
-  - file: testregression/flakytests
-  - file: testregression/selectionprio
+    - file: testregression/buildsystems
+      sections:
+        - file: testregression/gradlesetup
+    - file: testregression/continuousintegration
+    - file: testregression/flakytests
+    - file: testregression/selectionprio
 
 - chapter: Debugging
   sections:
-  - file: debugging/scientific
-  - file: debugging/gitbisect
-  - file: debugging/deltadebugging
+    - file: debugging/scientific
+    - file: debugging/gitbisect
+    - file: debugging/deltadebugging
 
 - chapter: Bibliography
   sections:
-  - file: bibliography/bibliography
+    - file: bibliography/bibliography
 
 - chapter: Misc
   sections:
-  - file: misc/credits
-  - file: misc/howtohelp
-  - file: misc/tobedone
+    - file: misc/credits
+    - file: misc/howtohelp
+    - file: misc/tobedone
