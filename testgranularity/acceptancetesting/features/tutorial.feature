@@ -1,6 +1,6 @@
-Feature: showing off behave
+Feature: My Juice
 
-  Scenario: run a simple test
-    Given we have behave installed
-    When we implement a test
-    Then behave will test it for us!
+  Scenario: Blenders
+    Given I put "apples" in a blender
+    When  I switch the blender on
+    Then  it should transform into "apple juice"
