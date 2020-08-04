@@ -26,7 +26,7 @@ This book is a joint effort of <b>many</b> people.
     * Combinatorial Testing:
     * Randomized Testing:
     * Fuzzing:
-    * Property-based Testing:
+    * Property-based Testing: Gabriela Britto
 
 * Regression Testing
     * Build Systems:
