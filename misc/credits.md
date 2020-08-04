@@ -25,7 +25,7 @@ This book is a joint effort of <b>many</b> people.
     * Model-Based Testing:
     * Combinatorial Testing:
     * Randomized Testing:
-    * Fuzzing:
+    * Fuzzing: Claudio Carvalho and Matheus Borba
     * Property-based Testing: Gabriela Britto
 
 * Regression Testing
