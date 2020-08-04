@@ -12,7 +12,7 @@ This book is a joint effort of <b>many</b> people.
 
 * Test Granularity
     * Unit Testing: Denini Gabriel and Saulo Barros
-    * Integration Testing:
+    * Integration Testing: Éden Santana and Pedro Rossi
     * System Testing: Lais Farias and Raquel Santos
     * Acceptance Testing:
 
