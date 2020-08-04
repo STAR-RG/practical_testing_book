@@ -31,7 +31,7 @@ This book is a joint effort of <b>many</b> people.
 * Regression Testing
     * Build Systems:
     * Continuous Integration:
-    * Flaky test:
+    * Flaky test: Cinthya Lins and Gabriela Magalhães
     * Test Selection and Prioritization:
 
 * Debugging
