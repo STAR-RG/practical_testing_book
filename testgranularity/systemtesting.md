@@ -25,7 +25,7 @@ Also, after each test run, the Robot Framework provides a clear, concise, and hu
 The example below shows a test that aims to open a web page using the firefox browser: the first version is written using Python and Selenium webdriver, the second using the Robot framework.
 
  * Python with Selenium WebDriver:
- ```python
+```python
 def setUp(self):
 self.driver = webdriver.Firefox() 
 self.driver.implicitly_wait(20)
@@ -175,3 +175,10 @@ This command will run the test suite and generate screenshots and files with all
 >
 >To encourage you, I challenge you to create a test that opens firefox browser, go to {cite}`robotorg` robotframework.org and capture a screenshot of the home screen.
 ---
+
+## References
+
+```{bibliography} ../zreferences.bib 
+    :style: plain 
+    :filter: docname in docnames
+```
