@@ -13,7 +13,7 @@ This book is a joint effort of <b>many</b> people.
 * Test Granularity
     * Unit Testing: Denini Gabriel and Saulo Barros
     * Integration Testing:
-    * System Testing:
+    * System Testing: Lais Farias and Raquel Santos
     * Acceptance Testing:
 
 * Test Adequacy
