@@ -9,7 +9,7 @@ When the code is passing in the Continuous Integration (CI) system, and a failur
 
 A test can be flaky for several reasons, the three most common are:
 
-*   **Async wait**: Every test needs some time to complete. In an asynchronous wait, sometimes the developer uses a **sleep** function to wait for the end of the execution. If the function finishes before this time, the test passes, if it takes more time, it fails. Many flaky tests caused by the async wait can be fixed using **waitFor**. This function, instead of pre-setting a specific amout of time to wait, bounds to the ocurrence of an action, meaning it waits until a certain action takes place. Let's imagine the following test where we send a message and then expect 3 seconds to the message to be sent.
+*   **Async wait**: Every test needs some time to complete. In an asynchronous wait, sometimes the developer uses a **sleep** function to wait for the end of the execution. If the function finishes before this time, the test passes, if it takes more time, it fails. Many flaky tests caused by the async wait can be fixed using **waitFor**. This function, instead of presetting a specific amout of time to wait, bounds to the ocurrence of an action, meaning it waits until a certain action takes place. Let's imagine the following test where we send a message and then expect 3 seconds to the message to be sent.
 ```
 click_button "Send"
 sleep 3
@@ -23,7 +23,7 @@ click_button "Send"
 waitFor message_to_be_sent
 ```
 
-*   **Concurrency**: Just like the async wait problem, other issues related to concurrency also have great impact in causing tests to be flaky. These generally derive from the developer not being mindful of the order in which the operations are being executed by the different threads. This can be settled by adding a synchronization block or making sure the execution order of  threads is being obeyed.
+*   **Concurrency**: Just like the async wait problem, other issues related to concurrency also have great impact in causing tests to be flaky. These generally derive from the developer not being mindful of the order in which the operations are being executed by the different threads. This can be settled by adding a synchronization block or making sure the correct execution order of  threads is being obeyed.
 ![](../assets/concurrency.jpg)  
 In the case presented in this figure, the threads are modifying a shared list. When we try to check if an element of the list is equal to a certain value “x”, depending on which thread modified it last the outcome can be different, causing this code to behave non-deterministically.  
 
@@ -37,7 +37,7 @@ Tests can also manifest flakiness due to dependency to other factors, such as ne
 
 ## Identifying flaky tests
 
-One way to identify these tests is to re-run the tests several times and mark the tests that show contradictory behaviors as “flaky”. However, it's hard to determine how many times you need to re-run a test until it proves to be flaky. It could still happen that your test exhibited a consistent behavior of failure but it was flaky. What some developers do is to set a threshold for the number of executions after which if the test continuosly gives a failure, they would consider to truly exist a bug in the code. 
+One way to identify these tests is to re-run the tests several times and mark the tests that show contradictory behaviors as “flaky”. But, it's hard to determine how many times you need to re-run a test until it proves to be flaky. It could still happen that your test exhibited a consistent behavior of failure but it was flaky. What some developers do is to set a threshold for the number of executions after which if the test continuosly gives a failure, they would consider to truly exist a bug in the code. 
 
 There are also tools, like [SCOPE](https://scope.dev/), that help to identify these tests in a single run.  
 
@@ -49,7 +49,7 @@ Now that we know what a flaky test is and what could cause them, we need to lear
 
 The approach some teams have to deal with flaky tests is to reject the test that exhibited this behavior, as examining if the issue is with the test or with the code takes time and delays development. Hence the easiest and most straightforward approach is to assume that the test is incorrect and not the code. However, this can’t be the best alternative, because if there is in fact a bug in the code it can escalate to bigger problems by pushing a broken code ahead.
 
-A safe initial approach is to start tagging tests that are flaky. Beyond that, you'll need to investigate the reason why a test showed such behavior and to further analyze the impact caused by this issue. In this case, it's extremely important to collect as much information as possible during the execution of each test: logs, specificities from the environment and memory data from the moment the test was executed, etc. This way it’s easier to reproduce the test that failed and to compare what’s different from the test that passed. As mentioned before, some teams reproduce a failed test countless times, which also helps to evaluate how flaky a test is. Another important piece of information to be considered is when this test started to to flake, since it's usually more complex to find the root problem in tests with older failures.
+A safe initial approach is to start tagging tests that are flaky. Beyond that, you'll need to investigate the reason why a test showed such behavior and to further analyze the impact caused by this issue. In this case, it's extremely important to collect as much information as possible during the execution of each test: logs, specificities from the environment and memory data from the moment the test was executed, etc. This way it’s easier to reproduce the test that failed and to compare what’s different from the test that passed. As mentioned before, some teams reproduce a failed test countless times, which also helps to evaluate how flaky a test is. Another important piece of information to be considered is when this test started to flake, since it's usually more complex to find the root problem in tests with older failures.
 
 Once a test is tagged as flaky and data about its execution is collected, you can put this test into quarantine. Its output is disregarded and it shouldn’t be executed in the master pipeline until the issue with it is fixed. Then the assigned developer will start debugging the test, equipped with all the information about in which context this specific test failed and in which it passed. Because most teams set dealing with flaky tests as a high priority, these tests are generally fixed quickly.
 
