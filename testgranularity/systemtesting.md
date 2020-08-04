@@ -14,7 +14,7 @@ For this, one of the ways used to simulate the user environment in a quick and p
 
 ### ROBOT
 
-Robot is considered a framework and not just a test automation tool because it was built to provide all the necessary structure to meet an entire acceptance test automation architecture {cite}`robot_documentation`. It allows to use keyword-driven, data-driven and / or behavior-driven (BDD) approaches. It has an easy-to-use tabular data syntax and allows users to use and create libraries in Python or Java. Has easy syntax, using human-readable keywords. The framework has a rich ecosystem around it, consisting of libraries and tools that are developed as separate projects.
+Robot is considered a framework and not just a test automation tool because it was built to provide all the necessary structure to meet an entire acceptance test automation architecture {cite}`robotdocumentation`. It allows to use keyword-driven, data-driven and / or behavior-driven (BDD) approaches. It has an easy-to-use tabular data syntax and allows users to use and create libraries in Python or Java. Has easy syntax, using human-readable keywords. The framework has a rich ecosystem around it, consisting of libraries and tools that are developed as separate projects.
 
 #### Main advantages
 
@@ -170,10 +170,10 @@ This command will run the test suite and generate screenshots and files with all
 
 ---
 **Challenge. Let's Test!**
-> On this {cite}`robot_library` [*link*](http://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Click%20Link) site you will find all the keywords that can be used to create web interface tests using this same configuration.
+> On this {cite}`robotlibrary` [*link*](http://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Click%20Link) site you will find all the keywords that can be used to create web interface tests using this same configuration.
 > Use and abuse your creativity to create more tests.
 >
->To encourage you, I challenge you to create a test that opens firefox browser, go to {cite}`robot_org` robotframework.org and capture a screenshot of the home screen.
+>To encourage you, I challenge you to create a test that opens firefox browser, go to {cite}`robotorg` robotframework.org and capture a screenshot of the home screen.
 ---
 
 ## References
