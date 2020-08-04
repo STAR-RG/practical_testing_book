@@ -11,7 +11,7 @@ This book is a joint effort of <b>many</b> people.
     * The Different Dimensions of Testing:
 
 * Test Granularity
-    * Unit Testing:
+    * Unit Testing: Denini Gabriel and Saulo Barros
     * Integration Testing:
     * System Testing:
     * Acceptance Testing:
