@@ -5,9 +5,9 @@ Mutation Testing
 
 Mutation Testing propose the creation of variations of the software under test in order that these tests show that these variations are not correct, therefore by elimination it can be verified that the original program is correct, these checks are made based on execution of existing unit tests. With this in mind, we can consider mutation testing as a technique to help in the process of improving test cases, making them more efficient, as well as to improve or guarantee the quality of these test cases, note that the test technique of mutation testing is a white box test technique.
 
-Mutation Testing works in the following way, the mutation operators are used on the original code making small changes on those in order to generate some variations called mutants, hence the name given to the technique. After the mutants have been generated, the tests originally used to test the code are performed on the generated mutants, if these mutants fail the test cases they will be considered ‘killed’ mutants, if any mutant does not fail he is considered a ‘survived’ mutant and this is an indication that the tests need to be reviewed/analyzed, making these tests more efficient after these analyzes and corrections.
+Mutation Testing works in the following way, the mutation operators are used on the original code making small changes on those in order to generate some variations called mutants, hence the name given to the technique. After the mutants have been generated, the tests originally used to test the code are performed on the generated mutants, if these mutants fail the test cases they will be considered ‘killed’ mutants, if any mutant does not fail it is considered a ‘survived’ mutant and this is an indication that the tests need to be reviewed/analyzed, making these tests more efficient after these analyzes and corrections.
 
-Here is an example of a mutation in a given piece of python code:
+Here is an example of a mutation in a python code:
 ```python
 def summation(*values):
     total = 0
