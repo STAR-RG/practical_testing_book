@@ -22,7 +22,7 @@ This book is a joint effort of <b>many</b> people.
     * Mutation Testing: Igor Santos and Vinicius Siqueira
     
 * Test Generation
-    * Model-Based Testing:
+    * Model-Based Testing: Aldiberg Junior and Arthur Castro 
     * Combinatorial Testing:
     * Randomized Testing:
     * Fuzzing: Claudio Carvalho and Matheus Borba
