@@ -21,6 +21,11 @@
     - file: testgranularity/systemtesting
     - file: testgranularity/acceptancetesting/acceptancetesting.ipynb
 
+- chapter: Good Practices 
+  sections:
+    - file: goodpractices/artifacts
+    - file: goodpractices/bugreports
+
 - chapter: Test Adequacy
   sections:
     - file: testadequacy/idea

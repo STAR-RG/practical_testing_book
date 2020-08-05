@@ -16,11 +16,15 @@ This book is a joint effort of <b>many</b> people.
     * System Testing: Lais Farias and Raquel Santos
     * Acceptance Testing:
 
+* Good Practices
+    * Test Artifacts: 
+    * Bug Reports: Arnaldo Morais and Filipe Melo
+
 * Test Adequacy
     * How Good Are your Tests?:
     * Structural Testing: Galileu Santos
     * Mutation Testing: Igor Santos and Vinicius Siqueira
-    
+
 * Test Generation
     * Model-Based Testing: Aldiberg Junior and Arthur Castro 
     * Combinatorial Testing:
