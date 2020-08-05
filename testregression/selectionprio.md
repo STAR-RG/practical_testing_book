@@ -1,83 +1,83 @@
-Test Selection and Prioritization
-================
+#### Test Selection and Prioritization
 
-Testing can take a large part of the development time and be expensive to create and execute, so It's also a job of to the developers to choose which tests should be done first and which method could used to test a specific part of your code. With a good skill on test selection a developer can assure quality software and cut the costs associated with the testing phase. 
+Testing can take a large part of the development time and be expensive to create and execute, so It's also a job of to the developers to choose which tests should be done first and which method could used to test a specific part of your code. With a good skill on test selection and prioritization a developer can assure quality software and cut the costs associated with the testing phase. 
 
-## Test Case Selection
+###### Test Case Selection
 
-Testing every case of a specific software can be really impractical since even for small parts of a program the number of possible inputs can be enormous. For this reason we should choose very carefully which cases to use while testing our applications and always trying to achieve the fault detection. 
+Test Case Selection is a problem about choosing which of the current available tests will be used while testing the specific part of the program. We need to choose such test set such as the largest number of fault-revealing tests are included. In this subsection we will be discussing some test case selection techniques and primarily assumes developer has free access to the application source code. 
 
-There are three approaches we could use for choosing test cases for a program, are those: 
 
-1. Random selection.
-   * Using simple random test cases we can acquire an effective test and keep a low cost of execution.
-1. Coverage-based selection.
-   * Using few test cases that aim for maximize test coverage we can make sure every line of code has been executed as least once.
-1. Similarity-based selection.
-   * Using distinct tests even in a lower quantity we can increase the chance of catching an error. 
+#### Safe approach
 
-Using this heuristics we can make tests that and fast to build and execute but still maintaining a high level of fault detection. 
+Safe techniques are a weaker but sometimes effective way to find such tests and involves using the most amount of tests possible that could impact the modified code. One way to finding this tests could be defining the modification-traversing tests cases and use them as our test set. 
+A test is considered modification-traversing if it either runs through new or modified parts of the code or it used to execute now deleted lines of code. 
+This approach may face some difficulties in larger projects since as the test set keep increasing we may see also a growth on the execution runtime, impacting the costs and the fault detection delay.
 
-## Regression Test Selection
+#### Firewall approach
 
-Regression testing selection is the process of choosing which of the tests created for our application will be executed for this purpose. Our goal is to choose a small amount of the already existing scenarios but still serving the purpose for retesting the already existing features. Choosing which tests to use during our regression tests is a process that should involve finding the application's most affected pieces by the change and also test cases for critical parts of the program.
+Introduced by Leung and White the Firewall approach is used for integration testing and involves creating a firewall around the system modules and categorizing them in the following categories:
 
-This process can be executed following three techniques:
+1. No Change.
+   * Module has not been modified.
+1. Only Code Change.
+   * Module had a change of code but no behavioral change intended.
+1. Spec Change.
+   * Module had a change both on code and behavior.
 
-1. Coverage technique.
-   * Chooses the tests based on how they cover the modified portion of the code.
-1. Minimisation technique.
-   * Uses the least amount of tests necessary to cover the modified part of the code.
-1. Safe technique.
-   * Executes the most tests possible that inputs different data to the modified method.
+By doing this classification we can search for the integration tests that interact with this different modules. Any tests that involves only modules from the No Change group should not be executed. Integration tests between two modified modules should be executed, as well as their respective unity tests. Now the integration tests that involves a module from the unchanged group and one from the changed group will be the boundaries for our firewall, so it's recommended to be executed but can be flexible depending on the development situation. 
 
-## Test Prioritization
+#### Data-flow analysis approach
+
+Presented by Harrold and Soffa this approach involves analyzing the application data, such as variables and objects, and detecting which parts of the code would be affected by a change in their content or behavior. 
+This approach is often used along other coverage-based approach, since it could be a challenge to detect changes unrelated to data-flow such as new procedure calls without any parameter, or modified output statements that contain no variable.  
+
+
+###### Test Prioritization
  
-Regression test is performed alongside software development to guarantee that new changes don’t affect the behavior of unchanged code. Having a good test-case suite that covers the software as a whole can be challenging and costly, as you can have a large suite and running all of them may take a while.
+Regression test is performed alongside software development to guarantee that new changes don’t affect the behavior of unchanged code. Having a good test-case suite that covers the software as a whole can be challenging and costly, as you can have a large suite, and running all of them may take a while.
+Test prioritization aims to sort the test suite in an optimal way and if the tests get halt at some point, the maximum coverage is achieved by that order. This technique is often applied after test case selection.
+Let’s take as an example the test case suite: A, B, C, D, E, and its fault reveal values as shown in the following table:
 
-Test prioritization is a technique for ordering test case suites aiming to remove repetition and waste of time when trying to expose software failures and faults.
+Since the goal is to maximize early fault detection, ordering the test suite execution as C-E-A-B-D is better than A-B-C-D-E (without changing the order) since starting with C-E all possible faults will be exposed after the execution of the second test case in the set. This is illustrated in the image below. The first shows that the full coverage is only achieved after the execution of the last test case of the sequence (E), while if we rearrange and use the optimal ordering full coverage is satisfied after the execution of the second test.
 
-Some aspects should be considered for test-case prioritization:
-  * Run frequency 
-  * Probability of failure, risk and user visibility
-  * The priority of requirements in stakeholders documentation
-  * Past history of complex code break
+![FaultReveledTable](../assets/fault_revealed.jpeg)
+![TestOrderGraph1](../assets/test_order1.jpeg) 
+![TestOrderGraph2](../assets/test_order2.jpeg)
 
-Using these criteria, we can list some prioritization techniques:
+Analyzing the prioritization before running the entire test case set is very hard and some surrogates are used to reveal fault exposure metrics.
 
-1. Based on the fault detection percentage.
-   * Rating the fault detection on each test, for each run, how many times it has detected a fault or not.
-1. Using faulty severity.
-   * The priority is based on the requirements of faulty severity, which means the number of times the fault can occur. For defining the weight of each, the following criteria can be used:
-    * Business value measure
-    * Project change volatility
-    * Complexity
-    * Fault proneness of requirement
-1. Prioritization for regression testing.
-   * For regression tests we can use different techniques for prioritizing tests, here are some of them:
-    2. No prioritization
-        * For this process you can consider not take any technique (not prioritizing the testing order and using an “untreated” test suite). The success of this approach depends on the manner in which the suite was built.
-    2. Random prioritization
-        * Randomly sorting test cases.
-    2. Optimal prioritization
-        * Determine which test exposes which fault and order them trying to cover the maximum number of fault as possible.
-    2. Total branch coverage prioritization
-        * Getting the number of decision branches that a test case can cover and sorting them by the total number of branches decreasingly.
-    2. Additional branch coverage prioritization
-        * This process is very similar to total branch coverage, but here the test cases are chosen iteratively to generate the best branch coverage in the next step. In the end, you might end with some tests that cannot add additional branch coverage, those can be selected in any order using another prioritization technique.
-    2. Total statement coverage prioritization
-        * The same process as total branch coverage, but statements are counted instead of branches.
-    2. Additional statement coverage prioritization
-        * The same process as additional branch coverage, but statements are counted instead of branches.
-    2. Total fault-exposing-potential prioritization
-        * Statement and branch prioritization may mask a fact about test cases and fault, the ability of a fault be exposed can depend on the probability of that fault cause a failure to the program. Total fault-exposing potential uses mutation analyses, calculating a mutation score for each pair of test cases and statements and summing all values to define a test case prioritization order.
-    2. Additional fault-exposing-potential prioritization
-        * Same approach as Total fault-exposing-potential, but after choosing a test case, the process lower the points for other test cases that cover the same statements.
+#### Coverage-based prioritization
 
-## References
- - [Testomat Guideline for Test Prioritization and Test Selection](https://itea3.org/project/workpackage/document/download/6194/Booklet%20v1.2%20-%20Guideline%20for%20Test%20Prioritization%20and%20Test%20Selection.pdf)
+Structural coverage is a metric that is often used for prioritization rule, the idea is that early maximization of structural coverage will also lead to maximal fault coverage. Rothermel et al. reported studies of different prioritization techniques following greedy techniques: branch-total, branch-additional, statement-total, statement-additional, Fault Exposing Potential (FEP)-total and FEP-additional.
+
+##### Total branch coverage prioritization
+
+Getting the number of decision branches that a test case can cover and sorting them by the total number of branches decreasingly.
+
+##### Additional branch coverage prioritization
+
+This process is very similar to total branch coverage, but here the test cases are chosen iteratively to generate the best branch coverage in the next step. In the end, you might end with some tests that cannot add additional branch coverage, those can be selected in any order using another prioritization technique.
+
+##### Total statement coverage prioritization
+
+The same process as total branch coverage, but statements are counted instead of branches.
+
+##### Additional statement coverage prioritization
+
+The same process as additional branch coverage, but statements are counted instead of branches.
+
+##### Total fault-exposing-potential prioritization
+
+Statement and branch prioritization may mask a fact about test cases and fault, the ability of a fault be exposed can depend on the probability of that fault cause a failure to the program. Total fault-exposing potential uses mutation analyses, calculating a mutation score for each pair of test cases and statements and summing all values to define a test case prioritization order.
+
+##### Additional fault-exposing-potential prioritization
+
+Same approach as Total fault-exposing-potential, but after choosing a test case, the process lower the points for other test cases that cover the same statements.
+
+
+These surrogates were proved by Rothermel to perform better than random and no prioritization techniques, on average across all the tested programs the Additional fault-exposing-potential prioritization performed most-effectively and almost reached the performance of the optimal approach.
+
+###### References
  - [Gregg Rothermel, Ronal H. Untch, Chengyun Chu, Mary Jean Harrold, “Test Case Prioritization: An Empirical Study, UK”, Proceedings of the International Conference on Software Maintenance, Oxford, September 1999](http://cse.unl.edu/~grother/papers/icsm99.pdf)
- - [Ahlam Ansaria, Anam Khanb, Alisha Khanc, Konain Mukadam, “Optimized Regression Test using Test Case Prioritization”, 7th International Conference on Communication, Computing and Virtualization 2016](https://core.ac.uk/download/pdf/82192235.pdf)
- - [Professional QA Regretion Test Selection](https://www.professionalqa.com/regression-test-selection)
- - [Professional QA Test Prioritization](https://www.professionalqa.com/test-prioritization)
+ - [S. Yoo, M. Harman, “Regression testing minimization, selection and prioritization:a survey” King’s College London, Centre for Research on Evolution, Search and Testing, Strand, London U.K. 2010](https://dl.acm.org/doi/10.1002/stv.430)
 
