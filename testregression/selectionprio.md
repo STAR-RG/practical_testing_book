@@ -77,7 +77,7 @@ Same approach as Total fault-exposing-potential, but after choosing a test case,
 
 These surrogates were proved by Rothermel to perform better than random and no prioritization techniques, on average across all the tested programs the Additional fault-exposing-potential prioritization performed most-effectively and almost reached the performance of the optimal approach.
 
-###### References
+## References
  - [Gregg Rothermel, Ronal H. Untch, Chengyun Chu, Mary Jean Harrold, “Test Case Prioritization: An Empirical Study, UK”, Proceedings of the International Conference on Software Maintenance, Oxford, September 1999](http://cse.unl.edu/~grother/papers/icsm99.pdf)
  - [S. Yoo, M. Harman, “Regression testing minimization, selection and prioritization:a survey” King’s College London, Centre for Research on Evolution, Search and Testing, Strand, London U.K. 2010](https://dl.acm.org/doi/10.1002/stv.430)
 

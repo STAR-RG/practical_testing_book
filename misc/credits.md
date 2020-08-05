@@ -41,7 +41,7 @@ This book is a joint effort of <b>many</b> people.
   - Build Systems:
   - Continuous Integration:
   - Flaky test: Cinthya Lins and Gabriela Magalhães
-  - Test Selection and Prioritization:
+  - Test Selection and Prioritization: Daniel Bastos and Rodrigo Farias
 
 - Debugging
   - Scientific Debugging: Vinicius Thiago and Victor Miranda
