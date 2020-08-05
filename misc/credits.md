@@ -12,13 +12,13 @@ This book is a joint effort of <b>many</b> people.
 
 * Test Granularity
     * Unit Testing: Denini Gabriel and Saulo Barros
-    * Integration Testing:
+    * Integration Testing: Éden Santana and Pedro Rossi
     * System Testing: Lais Farias and Raquel Santos
     * Acceptance Testing:
 
 * Test Adequacy
     * How Good Are your Tests?:
-    * Structural Testing:
+    * Structural Testing: Galileu Santos
     * Mutation Testing: Igor Santos and Vinicius Siqueira
     
 * Test Generation
@@ -36,6 +36,6 @@ This book is a joint effort of <b>many</b> people.
 
 * Debugging
     * Scientific Debugging:
-    * Git Bisect:
+    * Git Bisect: Fernando Alves
 
 Please keep in mind that there is no final version of this book. This is an evolving project. Things are added, removed, modified. I hope you enjoy and can contribute.
