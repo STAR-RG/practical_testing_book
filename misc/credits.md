@@ -35,7 +35,8 @@ This book is a joint effort of <b>many</b> people.
     * Test Selection and Prioritization:
 
 * Debugging
-    * Scientific Debugging:
+    * Scientific Debugging: Vinicius Thiago and Victor Miranda
     * Git Bisect: Fernando Alves
+    * Delta Debugging: Vinicius Thiago and Victor Miranda
 
 Please keep in mind that there is no final version of this book. This is an evolving project. Things are added, removed, modified. I hope you enjoy and can contribute.
