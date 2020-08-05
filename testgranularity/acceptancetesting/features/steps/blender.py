@@ -12,7 +12,7 @@ class Blender(object):
 
     @classmethod
     def select_result_for(cls, thing):
-        return cls.TRANSFORMATION_MAP.get(thing, "DIRT")
+        return cls.TRANSFORMATION_MAP.get(thing, "EMPTY")
 
     def add(self, thing):
         self.thing = thing
