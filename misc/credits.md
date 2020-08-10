@@ -15,7 +15,7 @@ This book is a joint effort of <b>many</b> people.
   - Unit Testing: Denini Gabriel and Saulo Barros
   - Integration Testing: Éden Santana and Pedro Rossi
   - System Testing: Lais Farias and Raquel Santos
-  - Acceptance Testing:
+  - Acceptance Testing: Marcela Cunha and Matheus Barbosa
 
 - Good Practices
 
