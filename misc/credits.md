@@ -38,8 +38,8 @@ This book is a joint effort of <b>many</b> people.
 
 - Regression Testing
 
-  - Build Systems:
-  - Continuous Integration:
+  - Build Systems: Saulo Guilhermino and Lucas Cardoso
+  - Continuous Integration: Saulo Guilhermino and Lucas Cardoso
   - Flaky test: Cinthya Lins and Gabriela Magalhães
   - Test Selection and Prioritization: Daniel Bastos and Rodrigo Farias
 
