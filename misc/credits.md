@@ -31,7 +31,7 @@ This book is a joint effort of <b>many</b> people.
 - Test Generation
 
   - Model-Based Testing: Aldiberg Junior and Arthur Castro
-  - Combinatorial Testing:
+  - Combinatorial Testing: Rafael Mota e Lucas Barros
   - Randomized Testing:
   - Fuzzing: Claudio Carvalho and Matheus Borba
   - Property-based Testing: Gabriela Britto
