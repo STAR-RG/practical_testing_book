@@ -7,24 +7,19 @@ When the code is passing in the Continuous Integration (CI) system, and a failur
 
 ## Top causes for flaky tests
 
-A test can be flaky for several reasons, the three most common are:
+A test can be flaky for several reasons, async wait, concurrency, test order dependency, network, floating point operations or not dealing well with I/O operations can lead to flaky behavior among other problems. 
 
-*   **Async wait**: Every test needs some time to complete. In an asynchronous wait, sometimes the developer uses a **sleep** function to wait for the end of the execution. If the function finishes before this time, the test passes, if it takes more time, it fails. Many flaky tests caused by the async wait can be fixed using **waitFor**. This function, instead of presetting a specific amout of time to wait, bounds to the ocurrence of an action, meaning it waits until a certain action takes place. Let's imagine the following test where we send a message and then expect 3 seconds to the message to be sent.
-```
-click_button "Send"
-sleep 3
-expect_message_to_be_sent
-```
-The problem is, sometimes, it takes more than 3 seconds to a message to be sent. When this happens, the test fails.
-A way to fix this, is by not specifying a time to the action to happen. The test waits for the message to be sent. This way, the test passes.
+![](../assets/ft_bar.png)
 
-```
-click_button "Send"
-waitFor message_to_be_sent
-```
+According to a [research](https://doi.org/10.1145/2635868.2635920) async wait, concurrency, test order dependency are the most common types so let's explain more about them:
+
+*   **Async wait**: Every test needs some time to complete. In an asynchronous wait, sometimes the developer uses a **sleep** function to wait for the end of the execution. If the function finishes before this time, the test passes, if it takes more time, it fails. Many flaky tests caused by the async wait can be fixed using **waitFor**. This function, instead of presetting a specific amout of time to wait, bounds to the ocurrence of an action, meaning it waits until a certain action takes place. Let's imagine the following test where we send a message and then expect 3 seconds to the message to be sent. The problem is, sometimes, it takes more than 3 seconds to a message to be sent. When this happens, the test fails.
+A way to fix this, is by not specifying a time to the action to happen. The test waits for the message to be sent. This way, the test passes.  
 
 *   **Concurrency**: Just like the async wait problem, other issues related to concurrency also have great impact in causing tests to be flaky. These generally derive from the developer not being mindful of the order in which the operations are being executed by the different threads. This can be settled by adding a synchronization block or making sure the correct execution order of  threads is being obeyed.
-![](../assets/concurrency.jpg)  
+
+![](../assets/concurrency.jpg)
+
 In the case presented in this figure, the threads are modifying a shared list. When we try to check if an element of the list is equal to a certain value “x”, depending on which thread modified it last the outcome can be different, causing this code to behave non-deterministically.  
 
 *   **Test Order Dependency**: Sometimes, a test assumes implicit requirements that can't be complied due to some modification made during the execution of a previous test. In this case, the order in which a set of tests is executed plays a role in influencing the occurrence of a certain output. For that reason tests should be independent from each other.
@@ -32,8 +27,6 @@ In the case presented in this figure, the threads are modifying a shared list. W
 ![](../assets/orderDependency.jpg)
 
 As shown in the figure above, when Test 1 for the function isEmpty() is isolated it passes. But when we run Test 2 for insert() before Test 1, Test 1 fails. We added a new value into the list, so it isn’t empty as expected. However, when we run Test 3 for the function remove() after Test 2 and before Test 1, Test 1 passes again. This time, despite having added a new value into the list, we removed it right after, so when Test 1 runs the list is empty again.
-
-Tests can also manifest flakiness due to dependency to other factors, such as network and system time. Using number generators, floating point operations or not dealing well with I/O operations could also lead to flaky behavior.
 
 ## Identifying flaky tests
 
@@ -52,6 +45,88 @@ The approach some teams have to deal with flaky tests is to reject the test that
 A safe initial approach is to start tagging tests that are flaky. Beyond that, you'll need to investigate the reason why a test showed such behavior and to further analyze the impact caused by this issue. In this case, it's extremely important to collect as much information as possible during the execution of each test: logs, specificities from the environment and memory data from the moment the test was executed, etc. This way it’s easier to reproduce the test that failed and to compare what’s different from the test that passed. As mentioned before, some teams reproduce a failed test countless times, which also helps to evaluate how flaky a test is. Another important piece of information to be considered is when this test started to flake, since it's usually more complex to find the root problem in tests with older failures.
 
 Once a test is tagged as flaky and data about its execution is collected, you can put this test into quarantine. Its output is disregarded and it shouldn’t be executed in the master pipeline until the issue with it is fixed. Then the assigned developer will start debugging the test, equipped with all the information about in which context this specific test failed and in which it passed. Because most teams set dealing with flaky tests as a high priority, these tests are generally fixed quickly.
+
+## Hands on
+
+Let's practice what we learned so far. Below we have an example of an Async Wait flaky test. It generates a randon number between 1 and 10 and passes this value as a paramater to a sleep function. 
+
+~~~
+import random
+import time
+from threading import Thread
+
+class app(Thread):
+  def __init__ (self):
+    Thread.__init__(self)
+    self.res = 0
+
+  def setResult(self, result):
+    self.res = result
+
+  def getResult(self):
+    return self.res
+
+  def run(self):
+    sleep_length = random.random() * 10
+    time.sleep(sleep_length)
+    self.setResult(100)
+~~~
+
+To test the code, we're going to use unittest, a python unit testing framework. In our test we start a thread as defined above and wait 7 seconds to get the result from that thread. If the random sleep time from the thread is higher than 7 seconds, the value of 'result' won't have been set to 100 when the assertEqual function runs and the test will fail, if it's lower, the test will pass.
+~~~
+import unittest
+import time
+
+class AppTestCase(unittest.TestCase):
+    def test_app_function(self):
+      app_test = app()
+      app_test.start()
+      time.sleep(7)
+      self.assertEqual(100, app_test.getResult())
+~~~
+
+Now let's run the test and see what output it gives:
+
+~~~
+suite = unittest.TestLoader().loadTestsFromTestCase(AppTestCase)
+unittest.TextTestRunner().run(suite)
+~~~
+~~~
+F
+======================================================================
+FAIL: test_app_function (__main__.AppTestCase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<ipython-input-51-25320b01c54c>", line 9, in test_app_function
+    self.assertEqual(100, app_test.getResult())
+AssertionError: 100 != 0
+
+----------------------------------------------------------------------
+Ran 1 test in 7.006s
+
+FAILED (failures=1)
+<unittest.runner.TextTestResult run=1 errors=0 failures=1>
+~~~
+
+The test fails. The sleep time of the thread is higher than the sleep time of the test. Let's try it again:
+
+~~~
+suite = unittest.TestLoader().loadTestsFromTestCase(AppTestCase)
+unittest.TextTestRunner().run(suite)
+~~~
+~~~
+.
+----------------------------------------------------------------------
+Ran 1 test in 7.009s
+
+OK
+<unittest.runner.TextTestResult run=1 errors=0 failures=0>
+~~~
+
+Now the test passes. The random behavior exhibited by this test is an example of flakiness caused by Async Wait.
+A good way to learn about this is by practicing. The code we just showed here is in this [notebook](https://colab.research.google.com/drive/17xEkPCMe3F11jdrZv5y6-8ye955A4Gn0?usp=sharing). As an exercise, we recommend you to try to solve the flakiness problem with this test as explained earlier in this text.
+
+If you want to test some concepts we shown here, try this [quiz](https://docs.google.com/forms/d/1mc1ZDXUFzViTQepWg0VxDJfwT_S09ITPSC8o97D2a2k/viewform?edit_requested=true).
 
 ## References
 
