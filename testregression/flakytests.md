@@ -131,7 +131,7 @@ Once a test is tagged as flaky and data about its execution is collected, you ca
 You can execute the example we showed earlier in the following notebook. Run the test several times and analyze the different outputs.
 
 <a 
-href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testregression/Flaky_Tests_Hands_On.ipynb" target="_blank"> 
+href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testregression/flakytestpractice.ipynb" target="_blank"> 
 <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a>
       
 ## Quiz
