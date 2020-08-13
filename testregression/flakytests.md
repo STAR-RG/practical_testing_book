@@ -7,48 +7,15 @@ When the code is passing in the Continuous Integration (CI) system, and a failur
 
 ## Top causes for flaky tests
 
-A test can be flaky for several reasons, async wait, concurrency, test order dependency, network, floating point operations or not dealing well with I/O operations can lead to flaky behavior among other problems. 
+According to Luo and colleagues a test can be flaky for several reasons as shown in the graphic bellow:
 
 ![](../assets/ft_bar.png)
 
-According to a [research](https://doi.org/10.1145/2635868.2635920) async wait, concurrency, test order dependency are the most common types so let's explain more about them:
+ Async wait, concurrency, test order dependency are the most common types so let's explain more about them.
 
-*   **Async wait**: Every test needs some time to complete. In an asynchronous wait, sometimes the developer uses a **sleep** function to wait for the end of the execution. If the function finishes before this time, the test passes, if it takes more time, it fails. Many flaky tests caused by the async wait can be fixed using **waitFor**. This function, instead of presetting a specific amout of time to wait, bounds to the ocurrence of an action, meaning it waits until a certain action takes place. Let's imagine the following test where we send a message and then expect 3 seconds to the message to be sent. The problem is, sometimes, it takes more than 3 seconds to a message to be sent. When this happens, the test fails.
-A way to fix this, is by not specifying a time to the action to happen. The test waits for the message to be sent. This way, the test passes.  
+#### Practical example of a flaky test
 
-*   **Concurrency**: Just like the async wait problem, other issues related to concurrency also have great impact in causing tests to be flaky. These generally derive from the developer not being mindful of the order in which the operations are being executed by the different threads. This can be settled by adding a synchronization block or making sure the correct execution order of  threads is being obeyed.
-
-![](../assets/concurrency.jpg)
-
-In the case presented in this figure, the threads are modifying a shared list. When we try to check if an element of the list is equal to a certain value “x”, depending on which thread modified it last the outcome can be different, causing this code to behave non-deterministically.  
-
-*   **Test Order Dependency**: Sometimes, a test assumes implicit requirements that can't be complied due to some modification made during the execution of a previous test. In this case, the order in which a set of tests is executed plays a role in influencing the occurrence of a certain output. For that reason tests should be independent from each other.
-
-![](../assets/orderDependency.jpg)
-
-As shown in the figure above, when Test 1 for the function isEmpty() is isolated it passes. But when we run Test 2 for insert() before Test 1, Test 1 fails. We added a new value into the list, so it isn’t empty as expected. However, when we run Test 3 for the function remove() after Test 2 and before Test 1, Test 1 passes again. This time, despite having added a new value into the list, we removed it right after, so when Test 1 runs the list is empty again.
-
-## Identifying flaky tests
-
-One way to identify these tests is to re-run the tests several times and mark the tests that show contradictory behaviors as “flaky”. But, it's hard to determine how many times you need to re-run a test until it proves to be flaky. It could still happen that your test exhibited a consistent behavior of failure but it was flaky. What some developers do is to set a threshold for the number of executions after which if the test continuosly gives a failure, they would consider to truly exist a bug in the code. 
-
-There are also tools, like [SCOPE](https://scope.dev/), that help to identify these tests in a single run.  
-
-The important thing is to identify the flakiness as soon as possible. Establishing a routine where the system is tested several times helps to identify a flaky earlier, reducing the impact on the development of the project.
-
-## Dealing with flaky tests
-
-Now that we know what a flaky test is and what could cause them, we need to learn how to deal with this type of test.
-
-The approach some teams have to deal with flaky tests is to reject the test that exhibited this behavior, as examining if the issue is with the test or with the code takes time and delays development. Hence the easiest and most straightforward approach is to assume that the test is incorrect and not the code. However, this can’t be the best alternative, because if there is in fact a bug in the code it can escalate to bigger problems by pushing a broken code ahead.
-
-A safe initial approach is to start tagging tests that are flaky. Beyond that, you'll need to investigate the reason why a test showed such behavior and to further analyze the impact caused by this issue. In this case, it's extremely important to collect as much information as possible during the execution of each test: logs, specificities from the environment and memory data from the moment the test was executed, etc. This way it’s easier to reproduce the test that failed and to compare what’s different from the test that passed. As mentioned before, some teams reproduce a failed test countless times, which also helps to evaluate how flaky a test is. Another important piece of information to be considered is when this test started to flake, since it's usually more complex to find the root problem in tests with older failures.
-
-Once a test is tagged as flaky and data about its execution is collected, you can put this test into quarantine. Its output is disregarded and it shouldn’t be executed in the master pipeline until the issue with it is fixed. Then the assigned developer will start debugging the test, equipped with all the information about in which context this specific test failed and in which it passed. Because most teams set dealing with flaky tests as a high priority, these tests are generally fixed quickly.
-
-## Hands on
-
-Let's practice what we learned so far. Below we have an example of an Async Wait flaky test. It generates a randon number between 1 and 10 and passes this value as a paramater to a sleep function. 
+Let's see a practical example of flaky test. Below we have a test with an Async Wait flakiness. It generates a randon number between 1 and 10 and passes this value as a paramater to a sleep function. 
 
 ~~~
 import random
@@ -122,11 +89,51 @@ Ran 1 test in 7.009s
 OK
 <unittest.runner.TextTestResult run=1 errors=0 failures=0>
 ~~~
+Now the test passes. The random behavior exhibited by this test is an example of flakiness caused by Async Wait, as we'll explain in the following:
 
-Now the test passes. The random behavior exhibited by this test is an example of flakiness caused by Async Wait.
-A good way to learn about this is by practicing. The code we just showed here is in this [notebook](https://colab.research.google.com/drive/17xEkPCMe3F11jdrZv5y6-8ye955A4Gn0?usp=sharing). As an exercise, we recommend you to try to solve the flakiness problem with this test as explained earlier in this text.
+*   **Async wait**: In an asynchronous wait, sometimes the developer uses a **sleep** function to wait for the end of the execution. If the function finishes before this time, the test passes, if it takes more time, it fails. Many flaky tests caused by the async wait can be fixed using **waitFor**. This function, instead of presetting a specific amout of time to wait, bounds to the ocurrence of an action, meaning it waits until a certain action takes place. 
 
-If you want to test some concepts we shown here, try this [quiz](https://docs.google.com/forms/d/1mc1ZDXUFzViTQepWg0VxDJfwT_S09ITPSC8o97D2a2k/viewform?edit_requested=true).
+*   **Concurrency**: Just like the async wait problem, other issues related to concurrency also have great impact in causing tests to be flaky. These generally derive from the developer not being mindful of the order in which the operations are being executed by the different threads. This can be settled by adding a synchronization block or making sure the correct execution order of  threads is being obeyed.
+
+![](../assets/concurrency.jpg)
+
+In the case presented in this figure, the threads are modifying a shared list. When we try to check if an element of the list is equal to a certain value “x”, depending on which thread modified it last the outcome can be different, causing this code to behave non-deterministically.  
+
+*   **Test Order Dependency**: Sometimes, a test assumes implicit requirements that can't be complied due to some modification made during the execution of a previous test. In this case, the order in which a set of tests is executed plays a role in influencing the occurrence of a certain output. For that reason tests should be independent from each other.
+
+![](../assets/orderDependency.jpg)
+
+As shown in the figure above, when Test 1 for the function isEmpty() is isolated it passes. But when we run Test 2 for insert() before Test 1, Test 1 fails. We added a new value into the list, so it isn’t empty as expected. However, when we run Test 3 for the function remove() after Test 2 and before Test 1, Test 1 passes again. This time, despite having added a new value into the list, we removed it right after, so when Test 1 runs the list is empty again.
+
+## Identifying flaky tests
+
+One way to identify these tests is to re-run the tests several times and mark the tests that show contradictory behaviors as “flaky”. But, it's hard to determine how many times you need to re-run a test until it proves to be flaky. It could still happen that your test exhibited a consistent behavior of failure but it was flaky. What some developers do is to set a threshold for the number of executions after which if the test continuosly gives a failure, they would consider to truly exist a bug in the code. 
+
+There are also tools, like [SCOPE](https://scope.dev/), that help to identify these tests in a single run.  
+
+The important thing is to identify the flakiness as soon as possible. Establishing a routine where the system is tested several times helps to identify a flaky earlier, reducing the impact on the development of the project.
+
+## Dealing with flaky tests
+
+Now that we know what a flaky test is and what could cause them, we need to learn how to deal with this type of test.
+
+The approach some teams have to deal with flaky tests is to reject the test that exhibited this behavior, as examining if the issue is with the test or with the code takes time and delays development. Hence the easiest and most straightforward approach is to assume that the test is incorrect and not the code. However, this can’t be the best alternative, because if there is in fact a bug in the code it can escalate to bigger problems by pushing a broken code ahead.
+
+A safe initial approach is to start tagging tests that are flaky. Beyond that, you'll need to investigate the reason why a test showed such behavior and to further analyze the impact caused by this issue. In this case, it's extremely important to collect as much information as possible during the execution of each test: logs, specificities from the environment and memory data from the moment the test was executed, etc. This way it’s easier to reproduce the test that failed and to compare what’s different from the test that passed. As mentioned before, some teams reproduce a failed test countless times, which also helps to evaluate how flaky a test is. Another important piece of information to be considered is when this test started to flake, since it's usually more complex to find the root problem in tests with older failures.
+
+Once a test is tagged as flaky and data about its execution is collected, you can put this test into quarantine. Its output is disregarded and it shouldn’t be executed in the master pipeline until the issue with it is fixed. Then the assigned developer will start debugging the test, equipped with all the information about in which context this specific test failed and in which it passed. Because most teams set dealing with flaky tests as a high priority, these tests are generally fixed quickly.
+
+## Pratical
+
+If you want to execute that example we gave, you can execute in the follow notebook. Run several times e see the results.
+
+<a 
+href="https://github.com/damorimRG/practical_testing_book/blob/master/testregression/Flaky_Tests_Hands_On.ipynb" target="_blank"> 
+<img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a>
+
+## Quiz
+
+If you want to test the concepts shown here, try this [quiz](https://docs.google.com/forms/d/1mc1ZDXUFzViTQepWg0VxDJfwT_S09ITPSC8o97D2a2k/viewform?edit_requested=true).
 
 ## References
 
