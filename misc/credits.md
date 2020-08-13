@@ -19,7 +19,7 @@ This book is a joint effort of <b>many</b> people.
 
 - Good Practices
 
-  - Test Artifacts:
+  - Test Artifacts: Emmanuel Nery e Matheus Lima
   - Bug Reports: Arnaldo Morais and Filipe Melo
 
 - Test Adequacy
