@@ -11,18 +11,18 @@ of the product. Unfortunately, that goal is not attainable and in practice we se
 
 Some approaches help us to increase the quality of tests using coverage. We want to cover as many requirements as possible, because it will increase the chance to capture faults.
 
-_Logical coverage_ measures extent to which conditionals are covered. Examples: basic conditions and compound conditions.
+- _Logical coverage_ measures extent to which conditionals are covered. Examples: basic conditions and compound conditions.
 
-_Dataflow coverage_ measures extent to which data flows are covered. Examples: definitions, uses, def-uses, and def-use paths.
+- _Dataflow coverage_ measures extent to which data flows are covered. Examples: definitions, uses, def-uses, and def-use paths.
 
-_Structural coverage_ measures amount of code elements covered by the test suite. For example: statement, line, basic-block, branch, function, etc.
+- _Structural coverage_ measures amount of code elements covered by the test suite. For example: statement, line, basic-block, branch, function, etc.
 
-_Mutation coverage_ measures amount of (injected) faults covered by the test suite.
+- _Mutation coverage_ measures amount of (injected) faults covered by the test suite.
 
 Our focus in this section is to study and practice Structural Testing and Mutation Testing.
 
 ## References
 
-1. [Test Case Selection and Adequacy](http://www.cs.toronto.edu/~chechik/courses18/csc410/Ch9-10AdequacyAndFunctional.pdf)
+1. [Marsha Chechik, Test Case Selection and Adequacy, 2007](http://www.cs.toronto.edu/~chechik/courses18/csc410/Ch9-10AdequacyAndFunctional.pdf)
 
-2. [coverage.ppt apresentation](http://damorim.github.io/testing-cin/)
+2. Marcelo d'Amorim, Coverage test notes
