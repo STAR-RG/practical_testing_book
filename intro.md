@@ -1,13 +1,20 @@
 Introduction
 ============
 
-This is a book about Software Testing.  We chose the word “Practical”
-for the title of this book because we strongly believe in the power of
-practicing for learning. We expect the reader to learn Software
-Testing by practicing with tutorials, demos, quizzes, and exercises.
+This is a book about Software Testing.
 
-This book is developed by the community [[TODO: refer to suggestion
-box here!]] to the community.
+- The book uses Jupyter Notebooks for increased interaction. For
+example, the reader can change the code (if she wants) and observe the
+outputs.
+
+- The book adopts a minimalistic principle. Less text. More
+tutorials, quizzes, and exercises.
+
+- The book is for anyone with basic experience in programming.
+
+- The code in the book is in Python. We chose Python for its popularity.
+
+This book is developed by the community to the community.
 
 For the reader, please move on to <a href="fundamentals/basics.html">the next chapter</a>.
 
@@ -21,4 +28,4 @@ If you are seriously interested in helping this effort, please take a look at th
 
   <a href="misc/howtohelp.html">How To Help</a>
 
----add copyright and other bs---
+---add copyright ---
