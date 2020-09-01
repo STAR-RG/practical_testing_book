@@ -8,3 +8,4 @@ testadequacy/.coverage
 testadequacy/area.py
 testadequacy/tests.py
 
+**/.ipynb_checkpoints
