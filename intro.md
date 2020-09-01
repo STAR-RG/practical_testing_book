@@ -3,16 +3,21 @@ Introduction
 
 This is a book about Software Testing.
 
-- The book uses Jupyter Notebooks for increased interaction. For
-example, the reader can change the code (if she wants) and observe the
-outputs.
+Highlights:
 
-- The book adopts a minimalistic principle. Less text. More
+- The book uses [Jupyter Notebooks](https://jupyter.org/) for
+increased interaction with the reader. With those notebooks, the
+reader will be able to execute code and observe outputs and and will
+be able to change the code (if she wants) to observe impact of the
+change.
+
+- The book adopts a minimalistic principle. Less text and More
 tutorials, quizzes, and exercises.
 
 - The book is for anyone with basic experience in programming.
 
-- The code in the book is in Python. We chose Python for its popularity.
+- The Programming Languagge the book adopts is Python. Our choice was
+  based on language popularity.
 
 This book is developed by the community to the community.
 
