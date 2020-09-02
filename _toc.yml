@@ -2,7 +2,6 @@
 
 - file: intro
   numbered: false
-#  expand_sections: false
 
 - part: Fundamentals
   chapters:
@@ -54,10 +53,6 @@
     - file: debugging/scientific
     - file: debugging/gitbisect
     - file: debugging/deltadebugging
-
-# - part: Bibliography
-#   chapters:
-#     - file: bibliography/bibliography
 
 - part: Misc
   chapters:
