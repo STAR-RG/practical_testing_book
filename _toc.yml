@@ -62,5 +62,4 @@
 - part: Misc
   sections:
     - file: misc/credits
-    - file: misc/howtohelp
-    - file: misc/tobedone
+    - file: misc/howtohelp    

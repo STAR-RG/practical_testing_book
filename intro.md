@@ -5,32 +5,27 @@ This is a book about Software Testing.
 
 Highlights:
 
+- The book adopts the minimalistic principle, meaning...
+
+	Less text and more
+tutorials, quizzes, and exercises.<br><br>
+
+- The book is for anyone with basic experience in programming.<br><br>
+
+- The book adopts Python as its Programming Language. 
+
+	The choice was based on language popularity.<br><br>
+
 - The book uses [Jupyter Notebooks](https://jupyter.org/) for
-increased interaction with the reader. With those notebooks, the
+increased interaction with the reader. 
+
+ 	With those notebooks, the
 reader will be able to execute code and observe outputs and and will
 be able to change the code (if she wants) to observe impact of the
-change.
+change.<br><br>
 
-- The book adopts a minimalistic principle. Less text and More
-tutorials, quizzes, and exercises.
+- The book is in constant change (just as software).
 
-- The book is for anyone with basic experience in programming.
+ 	This book is developed by the community to the community. As such, don't be surprised to find glitches. Look at it as bugs. We would be very greatful if you find them and make Pull Requests. <br><br>
 
-- The Programming Languagge the book adopts is Python. Our choice was
-  based on language popularity.
-
-This book is developed by the community to the community.
-
-For the reader, please move on to <a href="fundamentals/basics.html">the next chapter</a>.
-
-For the contributor:
-
-The book can be edited by *anyone* willing to make a Pull Request (PR) to the following repository:
-
-  <a href="https://github.com/damorimRG/practical_testing_book">https://github.com/damorimRG/practical_testing_book</a>.
-
-If you are seriously interested in helping this effort, please take a look at the following link:
-
-  <a href="misc/howtohelp.html">How To Help</a>
-
----add copyright ---
+- Check the instructions [here](misc/howtohelp) to contribute.

@@ -2,13 +2,13 @@
 
 This book is a joint effort of <b>many</b> people.
 
-<a href="http://www.cin.ufpe.br/~damorim">Marcelo d'Amorim</a> is the curator of the material and is therefore responsible for the mistakes.
+<a href="http://www.cin.ufpe.br/~damorim">Marcelo d'Amorim</a> is the curator of the material and is therefore responsible for the mistakes. 
 
 - Fundamentals
 
-  - Motivation and Basic Definitions:
-  - Limitations:
-  - The Different Dimensions of Testing:
+  - Motivation and Basic Definitions
+  - Limitations
+  - The Different Dimensions of Testing
 
 - Test Granularity
 
