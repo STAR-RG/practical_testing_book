@@ -2,16 +2,16 @@
 
 - file: intro
   numbered: false
-  expand_sections: false
+#  expand_sections: false
 
 - part: Fundamentals
-  sections:
+  chapters:
     - file: fundamentals/basics
     - file: fundamentals/limitations
     - file: fundamentals/kinds
 
 - part: Test Granularity
-  sections:
+  chapters:
     - file: testgranularity/unittesting
       sections:
         - file: testgranularity/organization_of_unit_tests.ipynb
@@ -22,18 +22,18 @@
     - file: testgranularity/acceptancetesting/acceptancetesting.ipynb
 
 - part: Good/Bad Practices
-  sections:
+  chapters:
     - file: goodpractices/artifacts
     - file: goodpractices/bugreports
 
 - part: Test Adequacy
-  sections:
+  chapters:
     - file: testadequacy/idea
     - file: testadequacy/coverage
     - file: testadequacy/mutation
 
 - part: Test Generation
-  sections:
+  chapters:
     - file: testgeneration/modelbased
     - file: testgeneration/combinatorial.ipynb
     - file: testgeneration/random
@@ -41,7 +41,7 @@
     - file: testgeneration/propertybased
 
 - part: Regression Testing
-  sections:
+  chapters:
     - file: testregression/buildsystems
       sections:
         - file: testregression/gradlesetup
@@ -50,16 +50,16 @@
     - file: testregression/selectionprio
 
 - part: Debugging
-  sections:
+  chapters:
     - file: debugging/scientific
     - file: debugging/gitbisect
     - file: debugging/deltadebugging
 
-- part: Bibliography
-  sections:
-    - file: bibliography/bibliography
+# - part: Bibliography
+#   chapters:
+#     - file: bibliography/bibliography
 
 - part: Misc
-  sections:
+  chapters:
     - file: misc/credits
     - file: misc/howtohelp    

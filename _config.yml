@@ -8,7 +8,7 @@ repository:
   url: https://github.com/damorimRG/practical_testing_book
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
-  binderhub_url: "https://mybinder.org"
+#  binderhub_url: "https://mybinder.org"
   colab_url: "https://colab.research.google.com"
 
 latex:
