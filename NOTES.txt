@@ -1,5 +1,0 @@
-# how this book was created
-https://jupyterbook.org/start/overview.html
-
-# what integrations
-see "launch buttons" on _config.yml
