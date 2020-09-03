@@ -1,28 +1,40 @@
-name: Build_and_Deploy_Book
-
+name: Build and Deploy Book
 on:
-    push:
-        branches:
-        - master
-
+  - push
+  - pull_request
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.7
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -U -r requirements.txt
-    - name: Build book
-      run: |
-        ./build.sh
-    - name: Deploy book
-      run: |
-        ./deploy.sh
+      - name: Set-up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Check-out Code
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U -r requirements.txt
+      - name: Build Book
+        run: ./build.sh
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: _build
+          path: _build
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Check-out Code
+        uses: actions/checkout@v2
+      - name: Download Artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: _build
+      - name: Deploy Book
+        run: ./deploy.sh
