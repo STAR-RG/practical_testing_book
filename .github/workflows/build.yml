@@ -30,6 +30,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
+      - name: Set-up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
       - name: Check-out Code
         uses: actions/checkout@v2
       - name: Download Artifact
