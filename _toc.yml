@@ -41,9 +41,9 @@
 
 - part: Regression Testing
   chapters:
-    - file: testregression/buildsystems
+    - file: testregression/buildsystems.ipynb
       sections:
-        - file: testregression/gradlesetup
+        - file: testregression/gradlesetup.ipynb
     - file: testregression/continuousintegration
     - file: testregression/flakytests
     - file: testregression/selectionprio
