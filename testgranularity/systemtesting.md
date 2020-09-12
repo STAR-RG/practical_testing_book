@@ -2,7 +2,7 @@
 
 The second-last level of tests' granularity is System Testing. System Testing has the purpose of evaluating the end-to-end system specifications. Meaning it validates the complete and fully integrated software product.
 
-![Img](../assets/systemtesting_diagram.png)
+![Testing Types](../assets/testing_types.png)
 
 Usually it involves testing the fully integrated applications including external peripherals in order to check how components interact with one another and with the system as a whole. Besides that, it also looks out for applications inputs and outputs and evaluating User's experience.
 
