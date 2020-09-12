@@ -51,7 +51,7 @@
 - part: Debugging
   chapters:
     - file: debugging/scientific
-    - file: debugging/gitbisect
+    - file: debugging/gitbisect.md
     - file: debugging/deltadebugging
 
 - part: Misc
