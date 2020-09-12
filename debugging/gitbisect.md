@@ -1,6 +1,6 @@
 # git-bisect
 
-It is common to make some change on a repository that introduces a bug. And sometimes this bug goes unoticed for a while, but when its detected not always is simple to find the root cause.
+It is common to make some change on a repository that introduces a bug. And sometimes this bug goes unoticed for a while, but when it's detected not always is simple to find the root cause.
 
 If you are using git as your version-control system, the `bisect` command may help you on this matter. As specified by the documentation, it uses binary search to find the commit that introduced a bug.
 
