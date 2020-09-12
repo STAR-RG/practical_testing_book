@@ -15,8 +15,6 @@
       sections:
         - file: testgranularity/organization_of_unit_tests.ipynb
     - file: testgranularity/integrationtesting
-      sections:
-        - file: testgranularity/mocking.ipynb
     - file: testgranularity/systemtesting
     - file: testgranularity/acceptancetesting/acceptancetesting.ipynb
 
