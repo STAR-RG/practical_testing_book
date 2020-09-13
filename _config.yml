@@ -3,6 +3,10 @@ title: The Practical Testing Book
 author: The World
 logo: logo.png
 
+html:
+  comments:
+    hypothesis: true
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/damorimRG/practical_testing_book
