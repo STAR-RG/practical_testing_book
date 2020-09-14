@@ -10,3 +10,4 @@ testadequacy/tests.py
 
 **/.ipynb_checkpoints
 .*
+**/crash*
