@@ -1,0 +1,671 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combinatorial Testing &#8212; The Practical Testing Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Randomized Testing" href="random.html" />
+    <link rel="prev" title="Model-Based Testing" href="modelbased.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">The Practical Testing Book</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fundamentals
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/basics.html">
+   Motivation and Basic Definitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/limitations.html">
+   Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/kinds.html">
+   The Different Dimensions of Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Granularity
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/unittesting.html">
+   Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/integrationtesting.html">
+   Integration Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/systemtesting.html">
+   System Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/acceptancetesting/acceptancetesting.html">
+   Acceptance Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Good/Bad Practices
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/artifacts.html">
+   Test Artifacts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/bugreports.html">
+   Bug Reports
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Adequacy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/idea.html">
+   How Good Are your Tests?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/coverage.html">
+   Structural Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/mutation.html">
+   Mutation Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Generation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelbased.html">
+   Model-Based Testing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Combinatorial Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random.html">
+   Randomized Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fuzzing.html">
+   Fuzzing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="propertybased.html">
+   Property-based Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Regression Testing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/buildsystems.html">
+   Build Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/continuousintegration.html">
+   Continuous Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/flakytests.html">
+   Flaky test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/selectionprio.html">
+   Test Selection and Prioritization
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Debugging
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/scientific.html">
+   Scientific Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/gitbisect.html">
+   git-bisect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/deltadebugging.html">
+   Delta Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/credits.html">
+   Credits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/howtohelp.html">
+   How To Help
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/testgeneration/combinatorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/damorimRG/practical_testing_book/master?urlpath=tree/testgeneration/combinatorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testgeneration/combinatorial.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-a-degree-of-interaction">
+   Choosing a degree of interaction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hands-on-open-in-colab">
+   Hands On
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#writing-combinatorial-tests">
+     Writing combinatorial tests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="combinatorial-testing">
+<h1>Combinatorial Testing<a class="headerlink" href="#combinatorial-testing" title="Permalink to this headline">¶</a></h1>
+<p>Nowadays, software systems are complex and can have multiple possible configurations, for example, an application can have multiple target operating systems, execute in various types of hardware, and in multiple resolutions. But also those applications can have multiple states which they are in.
+Those multiple parameters for a system cause different behaviors alone and when combined, so multiple combinations of a system’s parameters must be tested to achieve optimal test coverage, and catch errors that wouldn’t be detected executing simple tests.</p>
+<p>An example of an application that can have multiple possible configurations, is a mobile application, that can execute in multiple types of cellphone and in multiple possible states. A example of possible parameters <a class="bibtex reference internal" href="#combinatorialexample" id="id1">[Kuh]</a> for a mobile application are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Options</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Orientation</p></td>
+<td><p>portrait, landscape</p></td>
+</tr>
+<tr class="row-odd"><td><p>OS</p></td>
+<td><p>iOS, Android</p></td>
+</tr>
+<tr class="row-even"><td><p>Screen Size</p></td>
+<td><p>1080x1920, 750x1334, 720x1280</p></td>
+</tr>
+</tbody>
+</table>
+<p>Using those parameters, we can calculate the list of possible parameter combinations multiplying the number of options for each parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Number</span> <span class="n">of</span> <span class="n">configuration</span> <span class="n">combinations</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">=</span> <span class="mi">12</span> <span class="n">combinations</span> <span class="n">of</span> <span class="n">parameters</span>
+</pre></div>
+</div>
+<p>With a small quantity of parameters and options, this number is already big. But as the number of parameters and its possible values raise, the number of possible combinations rises exponentially, making it impossible to exhaustively test the software, given the time and budget constraints often existent on software projects.</p>
+<p>A way to overcome those limitations is by using Combinatorial Testing, a method for software testing that for some input parameters, tests possible discrete combinations of those parameters, generating those combinations by systematically covering t-way interactions between parameters <a class="bibtex reference internal" href="#combinatorialsurvey" id="id2">[NL11]</a>, the “t” being called the degree of interaction, this set of combinations is called a <em>covering array</em>.</p>
+<div class="section" id="choosing-a-degree-of-interaction">
+<h2>Choosing a degree of interaction<a class="headerlink" href="#choosing-a-degree-of-interaction" title="Permalink to this headline">¶</a></h2>
+<p>Constructing a Combinatorial Testing suite, we have to specify the input parameters and values, but there’s an important parameter we must think about: the degree of interaction. A degree of interaction t means that we want to test the t-way interaction of our parameters, that is, we want to test all combinations of t parameters.</p>
+<p>Depending on the value chosen for “t”, the process of generating the input can be more or less computationally complex but also can achieve more or less fault coverage. Increasing the value for “t” will increase the fault coverage, but also will increase the cost for generating and executing the tests, getting to a point that’s almost no gain in coverage as the “t”  increases.</p>
+<p>So, you would want to choose a degree of interaction that gives you an appropriate level of confidence but doesn’t make the process of testing to costly. The creators of ACTS, a popular tool for combinatorial testing, have done research on the relation of the degree of interactions and software failures. They found that most of the bugs studied were caused by an interaction of at most 6 different parameters <a class="bibtex reference internal" href="#actscombinatorial" id="id3">[KL14]</a>:</p>
+<div class="figure align-default" id="my-figure">
+<img alt="../_images/interactions_chart.png" src="../_images/interactions_chart.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Most failures are triggered by one or two parameters interacting, with progressively fewer by 3, 4, or more <a class="bibtex reference internal" href="#actscombinatorial" id="id4">[KL14]</a>.</span><a class="headerlink" href="#my-figure" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="hands-on-open-in-colab">
+<h2>Hands On <a class="reference external" href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testgeneration/combinatorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a><a class="headerlink" href="#hands-on-open-in-colab" title="Permalink to this headline">¶</a></h2>
+<p>Now that you understand what combinatorial testing is, let’s see in practice how it is done.</p>
+<p>Let’s take a looking at a important code that we want to test:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> important_code.py
+<span class="k">def</span> <span class="nf">important_function</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">low_fuel</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pressure</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">volume</span> <span class="o">&gt;</span> <span class="mi">300</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">velocity</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="n">do_something_bad</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">low_fuel</span><span class="p">:</span>
+            <span class="n">do_something_good</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">do_something_good</span><span class="p">()</span>
+ 
+<span class="k">def</span> <span class="nf">do_something_good</span><span class="p">():</span>
+    <span class="k">pass</span>
+ 
+<span class="k">def</span> <span class="nf">do_something_bad</span><span class="p">():</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;A bug happened!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We want to test important_function, which takes three integer parameters and a boolean. In this case, we want to test many combinations of parameters trying to be more confident that this code doesn’t have a bug.</p>
+<div class="section" id="writing-combinatorial-tests">
+<h3>Writing combinatorial tests<a class="headerlink" href="#writing-combinatorial-tests" title="Permalink to this headline">¶</a></h3>
+<p>Now that we took a look in the code that we want to test, let’s see how we can generate the combination of parameters that will spot the bug.</p>
+<p>First, we need to install both pytest and covertable dependencies:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+pip install pytest
+pip install covertable
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytest in /usr/local/lib/python3.6/dist-packages (3.6.4)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.6/dist-packages (from pytest) (49.6.0)
+Requirement already satisfied: atomicwrites&gt;=1.0 in /usr/local/lib/python3.6/dist-packages (from pytest) (1.4.0)
+Requirement already satisfied: py&gt;=1.5.0 in /usr/local/lib/python3.6/dist-packages (from pytest) (1.9.0)
+Requirement already satisfied: six&gt;=1.10.0 in /usr/local/lib/python3.6/dist-packages (from pytest) (1.15.0)
+Requirement already satisfied: more-itertools&gt;=4.0.0 in /usr/local/lib/python3.6/dist-packages (from pytest) (8.4.0)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.6/dist-packages (from pytest) (20.1.0)
+Requirement already satisfied: pluggy&lt;0.8,&gt;=0.5 in /usr/local/lib/python3.6/dist-packages (from pytest) (0.7.1)
+Requirement already satisfied: covertable in /usr/local/lib/python3.6/dist-packages (2.0.1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have the dependencies installed, let’s take a look in the file <code class="docutils literal notranslate"><span class="pre">test_parameterized.py</span></code>, which implements a test using those libraries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%file</span> test_parameterized.py
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">covertable</span> <span class="kn">import</span> <span class="n">make</span>
+<span class="kn">import</span> <span class="nn">important_code</span>
+ 
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">([</span><span class="s2">&quot;pressure&quot;</span><span class="p">,</span> <span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="s2">&quot;velocity&quot;</span><span class="p">,</span> <span class="s2">&quot;low_fuel&quot;</span><span class="p">],</span>
+    <span class="n">make</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]],</span> <span class="n">length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_important_function</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">low_fuel</span><span class="p">):</span>
+    <span class="n">important_code</span><span class="o">.</span><span class="n">important_function</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="n">volume</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">low_fuel</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, <code class="docutils literal notranslate"><span class="pre">pytest</span></code> provides us the annotation <code class="docutils literal notranslate"><span class="pre">&#64;pytest.mark.parametrize</span></code> that receives two arguments: an array of parameters names and a array of array of values for each of those parameters. The function below this annotation will be tested for each of the values specified in the second argument.</p>
+<p>In the first argument, we need to provide the name of the parameters we want to test. In this case, as we want to test <code class="docutils literal notranslate"><span class="pre">important_function</span></code>, we need to pass <code class="docutils literal notranslate"><span class="pre">[&quot;pressure&quot;,</span> <span class="pre">&quot;volume&quot;,</span> <span class="pre">&quot;velocity&quot;,</span> <span class="pre">&quot;low_fuel&quot;]</span></code>.</p>
+<p>In the second argument, we need to pass an array of array of values, that would be the combination of parameters given to <code class="docutils literal notranslate"><span class="pre">important_function</span></code>. To do that, we will be using <code class="docutils literal notranslate"><span class="pre">covertable</span></code> function called <code class="docutils literal notranslate"><span class="pre">make</span></code>. This function receives an array of array of values and return an array with the combination of them. To be more clear, as we passed <code class="docutils literal notranslate"><span class="pre">[5,10,15]</span></code> as the first element of the array, those are the possible values for the parameter <code class="docutils literal notranslate"><span class="pre">pressure</span></code>, <code class="docutils literal notranslate"><span class="pre">[200,</span> <span class="pre">300,</span> <span class="pre">400]</span></code> would be the possible values for the parameter <code class="docutils literal notranslate"><span class="pre">volume</span></code>, and so on.</p>
+<p>It’s important to notice that <code class="docutils literal notranslate"><span class="pre">make</span></code> also accepts some configuration. In the second argument, we set <code class="docutils literal notranslate"><span class="pre">length=3</span></code>. This is the degree of interaction that we teached earlier in this article. As we need the combination of <code class="docutils literal notranslate"><span class="pre">pressure</span></code>, <code class="docutils literal notranslate"><span class="pre">volume</span></code>, and <code class="docutils literal notranslate"><span class="pre">velocity</span></code> to catch the bug, our degree of interaction will be 3
+(in a real-world scenario, though, we wouldn’t know when a bug happens. So, you would want to choose a degree of interaction that gives you an appropriate level of confidence, as we discussed).</p>
+<p>Now that we have our test file, we just need to run pytest and see if there’s a bug:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+
+python -m pytest
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>============================= test session starts ==============================
+platform linux -- Python 3.6.9, pytest-3.6.4, py-1.9.0, pluggy-0.7.1
+rootdir: /content, inifile:
+plugins: typeguard-2.7.1
+collected 45 items
+
+sample_data/test_parameterized.py ...........F.......................... [ 84%]
+.......                                                                  [100%]
+
+=================================== FAILURES ===================================
+____________________ test_important_function[5-400-5-False] ____________________
+
+pressure = 5, volume = 400, velocity = 5, low_fuel = False
+
+    @pytest.mark.parametrize([&quot;pressure&quot;, &quot;volume&quot;, &quot;velocity&quot;, &quot;low_fuel&quot;],
+        make([[5,10,15],
+            [200, 300, 400],
+            [1, 2, 3, 4, 5],
+            [True, False]], length=3)
+    )
+    def test_important_function(pressure, volume, velocity, low_fuel):
+&gt;       important_function(pressure, volume, velocity, low_fuel)
+
+sample_data/test_parameterized.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+sample_data/test_parameterized.py:8: in important_function
+    do_something_bad()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def do_something_bad():
+&gt;       raise Exception(&quot;A bug happened!&quot;)
+E       Exception: A bug happened!
+
+sample_data/test_parameterized.py:18: Exception
+===================== 1 failed, 44 passed in 0.10 seconds ======================
+</pre></div>
+</div>
+</div>
+</div>
+<p>When running this command, you will see the log of parameters used to test the function and spot the bug caused by the combination of values that satisfies <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">&lt;</span> <span class="pre">10,</span> <span class="pre">volume</span> <span class="pre">&gt;</span> <span class="pre">300,</span> <span class="pre">and</span> <span class="pre">velocity</span> <span class="pre">==</span> <span class="pre">5</span></code>.</p>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Let’s practice what you learned. Using pytest and covertable, try to make a combinatorial test that will cover all interaction between the passed parameters in this domain below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">covertable</span> <span class="kn">import</span> <span class="n">make</span>
+
+<span class="k">def</span> <span class="nf">get_orientation</span><span class="p">(</span><span class="n">phoneWidthPixels</span><span class="p">,</span> <span class="n">phoneHeightPixels</span><span class="p">,</span> <span class="n">operatingSystem</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">phoneWidthPixels</span> <span class="o">&gt;=</span> <span class="mi">320</span> <span class="ow">and</span> <span class="n">phoneWidthPixels</span> <span class="o">&lt;=</span> <span class="mi">640</span> <span class="ow">and</span> <span class="n">phoneHeightPixels</span> <span class="o">&lt;=</span> <span class="mi">1136</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">operatingSystem</span> <span class="o">==</span> <span class="s2">&quot;android&quot;</span> <span class="ow">or</span> <span class="n">operatingSystem</span> <span class="o">==</span> <span class="s2">&quot;fuchsia&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;landscape&quot;</span>
+    <span class="k">elif</span> <span class="n">operatingSystem</span> <span class="o">==</span> <span class="s2">&quot;ios&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;portrait&quot;</span>
+  <span class="k">elif</span> <span class="n">phoneWidthPixels</span> <span class="o">&gt;</span> <span class="mi">640</span> <span class="ow">and</span> <span class="n">phoneWidthPixels</span> <span class="o">&lt;</span> <span class="mi">1242</span> <span class="ow">and</span> <span class="n">phoneHeightPixels</span> <span class="o">&gt;</span> <span class="mi">1136</span> <span class="ow">and</span> <span class="n">phoneHeightPixels</span> <span class="o">&lt;</span> <span class="mi">2208</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">operatingSystem</span> <span class="o">==</span> <span class="s2">&quot;android&quot;</span> <span class="ow">or</span> <span class="n">operatingSystem</span> <span class="o">==</span> <span class="s2">&quot;fuchsia&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;portrait&quot;</span>
+    <span class="k">elif</span> <span class="n">operatingSystem</span> <span class="o">==</span> <span class="s2">&quot;ios&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;landscape&quot;</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;portrait&quot;</span>
+
+
+<span class="c1">## Testing</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">([</span><span class="s2">&quot;phoneWidthPixels&quot;</span><span class="p">,</span> <span class="s2">&quot;phoneHeightPixels&quot;</span><span class="p">,</span> <span class="s2">&quot;operatingSystem&quot;</span><span class="p">],</span>
+    <span class="n">make</span><span class="p">([[],</span> <span class="p">[],</span> <span class="p">[]])</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test_get_orientation</span><span class="p">(</span><span class="n">phoneWidthPixels</span><span class="p">,</span> <span class="n">phoneHeightPixels</span><span class="p">,</span> <span class="n">operatingSystem</span><span class="p">):</span>
+    <span class="n">get_orientation</span><span class="p">(</span><span class="n">phoneWidthPixels</span><span class="p">,</span> <span class="n">phoneHeightPixels</span><span class="p">,</span> <span class="n">operatingSystem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-testgeneration/combinatorial-0"><dl class="citation">
+<dt class="bibtex label" id="actscombinatorial"><span class="brackets">KL14</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
+<dd><p>Raghu N. Kacker Kuhn, D. Richard and Yu Lei. Combinatorial testing. <em>Encyclopedia of Software Engineering Three-Volume Set (Print)</em>, 2014. URL: <a class="reference external" href="https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910001">https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910001</a>.</p>
+</dd>
+<dt class="bibtex label" id="combinatorialexample"><span class="brackets"><a class="fn-backref" href="#id1">Kuh</a></span></dt>
+<dd><p>Rick Kuhn. Introduction to combinatorial testing. Accessed: 2020-07-30. URL: <a class="reference external" href="https://personal.utdallas.edu/~ewong/SE6367/03-Lecture/29-A-Combinatorial-Testing-by-Kuhn.pdf">https://personal.utdallas.edu/~ewong/SE6367/03-Lecture/29-A-Combinatorial-Testing-by-Kuhn.pdf</a>.</p>
+</dd>
+<dt class="bibtex label" id="combinatorialsurvey"><span class="brackets"><a class="fn-backref" href="#id2">NL11</a></span></dt>
+<dd><p>Changhai Nie and Hareton Leung. A survey of combinatorial testing. <em>ACM Comput. Surv.</em>, February 2011. URL: <a class="reference external" href="https://doi.org/10.1145/1883612.1883618">https://doi.org/10.1145/1883612.1883618</a>, <a class="reference external" href="https://doi.org/10.1145/1883612.1883618">doi:10.1145/1883612.1883618</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./testgeneration"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="modelbased.html" title="previous page">Model-Based Testing</a>
+    <a class='right-next' id="next-link" href="random.html" title="next page">Randomized Testing</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The World<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

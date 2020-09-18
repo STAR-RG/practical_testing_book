@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Systems &#8212; The Practical Testing Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gradle Project" href="gradlesetup.html" />
+    <link rel="prev" title="Property-based Testing" href="../testgeneration/propertybased.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">The Practical Testing Book</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fundamentals
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/basics.html">
+   Motivation and Basic Definitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/limitations.html">
+   Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/kinds.html">
+   The Different Dimensions of Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Granularity
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/unittesting.html">
+   Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/integrationtesting.html">
+   Integration Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/systemtesting.html">
+   System Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/acceptancetesting/acceptancetesting.html">
+   Acceptance Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Good/Bad Practices
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/artifacts.html">
+   Test Artifacts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/bugreports.html">
+   Bug Reports
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Adequacy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/idea.html">
+   How Good Are your Tests?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/coverage.html">
+   Structural Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/mutation.html">
+   Mutation Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Generation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgeneration/modelbased.html">
+   Model-Based Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgeneration/combinatorial.html">
+   Combinatorial Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgeneration/random.html">
+   Randomized Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgeneration/fuzzing.html">
+   Fuzzing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgeneration/propertybased.html">
+   Property-based Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Regression Testing
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Build Systems
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="gradlesetup.html">
+     Gradle Project
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="continuousintegration.html">
+   Continuous Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="flakytests.html">
+   Flaky test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="selectionprio.html">
+   Test Selection and Prioritization
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Debugging
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/scientific.html">
+   Scientific Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/gitbisect.html">
+   git-bisect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/deltadebugging.html">
+   Delta Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/credits.html">
+   Credits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/howtohelp.html">
+   How To Help
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/testregression/buildsystems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/damorimRG/practical_testing_book/master?urlpath=tree/testregression/buildsystems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testregression/buildsystems.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hands-on">
+   Hands On
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-build-file">
+   The Build file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-projects-code">
+   The project’s code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling-the-project">
+   Compiling the project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-the-code">
+   Testing the Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#quiz">
+   Quiz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="build-systems">
+<h1>Build Systems<a class="headerlink" href="#build-systems" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of a Build System is to automate the process of generating a software build. But what exactly is a build? In a simplified way, build is the process that involves compiling the source code of a computer program into binary files that are executed by the computer. At this stage, the build system also handles tasks such as managing project dependencies. After compilation, some projects also test the code using the test classes written by the developers to ensure that the code is ready and correct.</p>
+<p>The automation process of generating the build can include several different processes, as we mentioned: compiling source code into binary, packaging binary code, and running automated tests to detect errors. There is no universal tool that can be used across multiple technologies, some of which specialize in small parts of the process. Here we use one of those general tools, called Gradle.</p>
+<p>Gradle is an open source build automation tool, gradle stands out for its extremely versatility. Used by big tech companies, such as Netflix and Linkedin, it uses a Domains Specific Language (DSL) based on Groovy (there is limited support based on Kotlin as well). Gradle has a big list of features, some of these can help you improve your project build performance and dependency management.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;qi_0t1PrM3o&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">480</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="720"
+    height="480"
+    src="https://www.youtube.com/embed/qi_0t1PrM3o"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="section" id="hands-on">
+<h2>Hands On<a class="headerlink" href="#hands-on" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>For this practice it’s necessary to have Gradle installed on your computer. If you don’t have, follow this <a class="reference external" href="https://gradle.org/install/">tutorial</a> and install.</p>
+</div></blockquote>
+<p>Now it’s time to create your own project using Gradle as Builder following this tutorial:<a href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testregression/gradlesetup.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a></p>
+</div>
+<div class="section" id="the-build-file">
+<h2>The Build file<a class="headerlink" href="#the-build-file" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>We have already made a project available for us to do the analysis. It is a simple design of a Binary Search algorithm in an array with some test cases. For this, you need to clone <a class="reference external" href="https://github.com/damorimRG/practical_testing_book_demos">this repository</a> on your computer. This repository contains a lot of practical material used in this book. The section that we’ll use is under the <a class="reference external" href="https://github.com/damorimRG/practical_testing_book_demos/tree/master/2-build-gradle/binarysearch">2-build-gradle/binarysearch</a> folder.</p>
+</div></blockquote>
+<p>When executing a build through the gradle, the tool will look for instructions on what should be done during it. Each phase, or order, performed is called a task and these tasks are described in the <strong><code class="docutils literal notranslate"><span class="pre">build.gradle</span></code></strong> file, which is located in the root folder of the repository.</p>
+<p>In the <strong><code class="docutils literal notranslate"><span class="pre">build.gradle</span></code></strong> file provided, you will find some code to perform a simple build of the project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apply</span> <span class="n">plugin</span><span class="p">:</span> <span class="s1">&#39;java&#39;</span>
+</pre></div>
+</div>
+<p>This first line tells the build system what the project’s compilation logic should be. As in the above process we specified that the project would be a Java application, the code looks like this.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">repositories</span> <span class="p">{</span>
+   <span class="n">mavenCentral</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This second line tells Gradle which repository the system should resolve dependencies on.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="p">{</span>
+   <span class="n">testImplementation</span> <span class="s1">&#39;junit:junit:4.1&#39;</span><span class="p">,</span> <span class="s1">&#39;org.hamcrest:hamcrest-all:1.3&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, this configuration tells the system some additional dependencies of the project, in this case we specify which test libraries are used for the correct compilation of the code.</p>
+</div>
+<div class="section" id="the-projects-code">
+<h2>The project’s code<a class="headerlink" href="#the-projects-code" title="Permalink to this headline">¶</a></h2>
+<p>The project classes, as well as the test classes, are located, by default, below the <strong><code class="docutils literal notranslate"><span class="pre">src</span></code></strong> directory. The only class of this project is in the main directory and it is a simple Binarysearch algorithm in arrays.</p>
+<p>The only test class is found in the test directory. The code is written using the JUnit framework and tests some expected results from certain input cases.</p>
+</div>
+<div class="section" id="compiling-the-project">
+<h2>Compiling the project<a class="headerlink" href="#compiling-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Now that you know where the project is, we can move on to the build process. In the root folder, type in the terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gradle</span> <span class="n">build</span>
+</pre></div>
+</div>
+<p>After a few seconds, Gradle will have configured all the dependencies, compiled the project and applied the tests. The test results can be found in the HTML file found in the new <strong><code class="docutils literal notranslate"><span class="pre">build</span></code></strong> directory, which is now located in the root folder. Within this new directory are configuration files, temporary files, binaries used in the compilation and the test results (in the <strong><code class="docutils literal notranslate"><span class="pre">reports</span></code></strong> folder). The <strong><code class="docutils literal notranslate"><span class="pre">index.html</span></code></strong> file presents, in a very intuitive way, the test results for each package and class of the project. If any test fails, the file will show the entire stack of the failed test execution</p>
+</div>
+<div class="section" id="testing-the-code">
+<h2>Testing the Code<a class="headerlink" href="#testing-the-code" title="Permalink to this headline">¶</a></h2>
+<p>To improve the display of tests in the terminal, you can also add one more task to your build file. The task code is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tasks</span><span class="o">.</span><span class="n">withType</span><span class="p">(</span><span class="n">Test</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="n">testLogging</span> <span class="p">{</span>
+    <span class="n">exceptionFormat</span> <span class="s2">&quot;full&quot;</span>
+    <span class="n">events</span> <span class="s2">&quot;started&quot;</span><span class="p">,</span> <span class="s2">&quot;skipped&quot;</span><span class="p">,</span> <span class="s2">&quot;passed&quot;</span><span class="p">,</span> <span class="s2">&quot;failed&quot;</span>
+    <span class="n">showStandardStreams</span> <span class="n">true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To execute this new task, we will only run the tests on the project. Running <strong><code class="docutils literal notranslate"><span class="pre">gradle</span> <span class="pre">test</span></code></strong>, we obtain, in addition to the code compilation logs, the result of the tests execution.</p>
+<p>If you don’t find that answer, the gradle may not have run the tests. This can happen because the tool exists precisely to avoid rework, so it analyzes the inputs and outputs of each task, if the inputs have not changed, it does not execute the task again, considering that it is up-to-date. If this is the case, just use the command <strong><code class="docutils literal notranslate"><span class="pre">gradle</span> <span class="pre">test</span> <span class="pre">--rerun-tasks</span></code></strong>, which forces the gradle to run the tasks again.</p>
+<p>Now we can see which tests were run and the results of each one. With a versatile tool such as Gradle you can write many different tasks that can help with your specific build automation, like the one above. To discover the most commonly used commands, access the <a class="reference external" href="https://docs.gradle.org/current/userguide/command_line_interface.html">Gradle documentation</a>.</p>
+</div>
+<div class="section" id="quiz">
+<h2>Quiz<a class="headerlink" href="#quiz" title="Permalink to this headline">¶</a></h2>
+<p>Now that you have finished this section, we suggest to you take our quiz to confirm your knowledge. Good luck!</p>
+<iframe 
+	src="https://docs.google.com/forms/d/1r5V2vy4kJMMZSw414u3vy2YXrLfWmxa0XzNFlnT1_N8/viewform?edit_requested=true" 
+	width="90%" 
+	height="1200px" 
+	frameborder="0" 
+	marginheight="0" 
+	marginwidth="0">
+	Loading...
+</iframe></div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://gradle.org/install/">Gradle tutorial</a></p></li>
+<li><p><a class="reference external" href="https://docs.gradle.org/current/userguide/command_line_interface.html">Gradle documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=qi_0t1PrM3o">Introduction to Build Automation</a></p></li>
+</ol>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./testregression"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../testgeneration/propertybased.html" title="previous page">Property-based Testing</a>
+    <a class='right-next' id="next-link" href="gradlesetup.html" title="next page">Gradle Project</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The World<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

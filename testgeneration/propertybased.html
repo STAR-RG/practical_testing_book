@@ -1,0 +1,810 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property-based Testing &#8212; The Practical Testing Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build Systems" href="../testregression/buildsystems.html" />
+    <link rel="prev" title="Fuzzing" href="fuzzing.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">The Practical Testing Book</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fundamentals
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/basics.html">
+   Motivation and Basic Definitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/limitations.html">
+   Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/kinds.html">
+   The Different Dimensions of Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Granularity
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/unittesting.html">
+   Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/integrationtesting.html">
+   Integration Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/systemtesting.html">
+   System Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/acceptancetesting/acceptancetesting.html">
+   Acceptance Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Good/Bad Practices
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/artifacts.html">
+   Test Artifacts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/bugreports.html">
+   Bug Reports
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Adequacy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/idea.html">
+   How Good Are your Tests?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/coverage.html">
+   Structural Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/mutation.html">
+   Mutation Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Generation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelbased.html">
+   Model-Based Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="combinatorial.html">
+   Combinatorial Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random.html">
+   Randomized Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fuzzing.html">
+   Fuzzing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Property-based Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Regression Testing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/buildsystems.html">
+   Build Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/continuousintegration.html">
+   Continuous Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/flakytests.html">
+   Flaky test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/selectionprio.html">
+   Test Selection and Prioritization
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Debugging
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/scientific.html">
+   Scientific Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/gitbisect.html">
+   git-bisect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/deltadebugging.html">
+   Delta Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/credits.html">
+   Credits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/howtohelp.html">
+   How To Help
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/testgeneration/propertybased.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/damorimRG/practical_testing_book/master?urlpath=tree/testgeneration/propertybased.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testgeneration/propertybased.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why">
+   Why?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how">
+   How?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-hypothesis">
+   Example: Hypothesis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="property-based-testing">
+<h1>Property-based Testing<a class="headerlink" href="#property-based-testing" title="Permalink to this headline">¶</a></h1>
+<p>Property-based testing is a method of testing where tests are written to assert that your software satisfies a set of properties for many different inputs.
+In example-based testing, the behavior of your software is verified for specific examples, in the form of concrete inputs. Property-based testing generalizes this to test your software for any valid input. In addition to that, property-based testing focuses on testing more general properties of our software, behaviors that always hold even when the input changes. In example-based testing, we are usually concerned with the more concrete and specific behavior that applies to our example at hand.</p>
+<div class="section" id="why">
+<h2>Why?<a class="headerlink" href="#why" title="Permalink to this headline">¶</a></h2>
+<p>Property-based testing verifies that our properties hold for many inputs, instead of a set of specific examples. This allows our tests to catch bugs that would otherwise go undetected.</p>
+<p>Property-based testing allows us to focus on what is really relevant to our test. We need to think about what our input looks like in more general terms. For instance, if one of our input parameters is an integer, we must think if our software accepts all integer values or only those in a specific range. We are also forced to think about what kinds of properties our software has. Those things are explicitly codified in our tests, so property-based testing forces us to make our assumptions explicit.</p>
+</div>
+<div class="section" id="how">
+<h2>How?<a class="headerlink" href="#how" title="Permalink to this headline">¶</a></h2>
+<p>The original property-based testing library is <a class="reference external" href="https://hackage.haskell.org/package/QuickCheck">QuickCheck</a>, written for Haskell, but there are tools for property-based testing for <a class="reference external" href="https://en.wikipedia.org/wiki/QuickCheck">many languages</a>.
+A property-based library usually consists of two basic parts. One of them is a component capable of generating a large set of data to be used as input for the tests. The other is a library that allows us to formulate the properties that we want to test.</p>
+</div>
+<div class="section" id="example-hypothesis">
+<h2>Example: Hypothesis<a class="headerlink" href="#example-hypothesis" title="Permalink to this headline">¶</a></h2>
+<p>We will use <a class="reference external" href="https://hypothesis.works/">Hypothesis</a> in Python as our property-based testing library. Let’s install it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install hypothesis # Install hypothesis
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting hypothesis
+?25l  Downloading https://files.pythonhosted.org/packages/2e/5f/4057b926d3272f666810fd620b8c754c0b6642b96f1bcc19ba3f91703c24/hypothesis-5.19.3-py3-none-any.whl (301kB)
+
+     |█                               | 10kB 17.2MB/s eta 0:00:01
+     |██▏                             | 20kB 2.1MB/s eta 0:00:01
+     |███▎                            | 30kB 2.7MB/s eta 0:00:01
+     |████▍                           | 40kB 3.1MB/s eta 0:00:01
+     |█████▍                          | 51kB 2.5MB/s eta 0:00:01
+     |██████▌                         | 61kB 2.8MB/s eta 0:00:01
+     |███████▋                        | 71kB 3.0MB/s eta 0:00:01
+     |████████▊                       | 81kB 3.4MB/s eta 0:00:01
+     |█████████▊                      | 92kB 3.6MB/s eta 0:00:01
+     |██████████▉                     | 102kB 3.4MB/s eta 0:00:01
+     |████████████                    | 112kB 3.4MB/s eta 0:00:01
+     |█████████████                   | 122kB 3.4MB/s eta 0:00:01
+     |██████████████▏                 | 133kB 3.4MB/s eta 0:00:01
+     |███████████████▏                | 143kB 3.4MB/s eta 0:00:01
+     |████████████████▎               | 153kB 3.4MB/s eta 0:00:01
+     |█████████████████▍              | 163kB 3.4MB/s eta 0:00:01
+     |██████████████████▌             | 174kB 3.4MB/s eta 0:00:01
+     |███████████████████▌            | 184kB 3.4MB/s eta 0:00:01
+     |████████████████████▋           | 194kB 3.4MB/s eta 0:00:01
+     |█████████████████████▊          | 204kB 3.4MB/s eta 0:00:01
+     |██████████████████████▉         | 215kB 3.4MB/s eta 0:00:01
+     |███████████████████████▉        | 225kB 3.4MB/s eta 0:00:01
+     |█████████████████████████       | 235kB 3.4MB/s eta 0:00:01
+     |██████████████████████████      | 245kB 3.4MB/s eta 0:00:01
+     |███████████████████████████▏    | 256kB 3.4MB/s eta 0:00:01
+     |████████████████████████████▎   | 266kB 3.4MB/s eta 0:00:01
+     |█████████████████████████████▎  | 276kB 3.4MB/s eta 0:00:01
+     |██████████████████████████████▍ | 286kB 3.4MB/s eta 0:00:01
+     |███████████████████████████████▌| 296kB 3.4MB/s eta 0:00:01
+     |████████████████████████████████| 307kB 3.4MB/s 
+?25hRequirement already satisfied: sortedcontainers&lt;3.0.0,&gt;=2.1.0 in /usr/local/lib/python3.6/dist-packages (from hypothesis) (2.2.2)
+Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.6/dist-packages (from hypothesis) (19.3.0)
+Installing collected packages: hypothesis
+Successfully installed hypothesis-5.19.3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we need the code that we want to test. The Python standard library <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str.center">defines a string method called <code class="docutils literal notranslate"><span class="pre">center</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">width</span><span class="p">[,</span> <span class="n">fillchar</span><span class="p">])</span>
+<span class="n">Return</span> <span class="n">centered</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">string</span> <span class="n">of</span> <span class="n">length</span> <span class="n">width</span><span class="o">.</span> <span class="n">Padding</span> <span class="ow">is</span> <span class="n">done</span> <span class="n">using</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">fillchar</span> <span class="p">(</span><span class="n">default</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">ASCII</span> <span class="n">space</span><span class="p">)</span><span class="o">.</span> <span class="n">The</span> <span class="n">original</span> <span class="n">string</span> <span class="ow">is</span> <span class="n">returned</span> <span class="k">if</span> <span class="n">width</span> <span class="ow">is</span> <span class="n">less</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="n">to</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Our example will be a function that tries to implement the <code class="docutils literal notranslate"><span class="pre">center</span></code> string method, following the above specification:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># String center function that we want to test</span>
+
+<span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">fillchar</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">width</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">margin</span> <span class="o">=</span> <span class="n">width</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="n">left_margin</span> <span class="o">=</span> <span class="n">margin</span> <span class="o">//</span> <span class="mi">2</span>
+  <span class="n">right_margin</span> <span class="o">=</span> <span class="n">margin</span> <span class="o">-</span> <span class="n">left_margin</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">fillchar</span> <span class="o">*</span> <span class="n">left_margin</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="n">fillchar</span> <span class="o">*</span> <span class="n">right_margin</span><span class="p">)</span>
+
+<span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; abc &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is based on <a class="reference external" href="https://github.com/python/cpython/blob/98ce7b107e6611d04dc35a4f5b02ea215ef122cf/Objects/stringlib/transmogrify.h#L195">CPython’s implementation of <code class="docutils literal notranslate"><span class="pre">center</span></code></a>. CPython also has <a class="reference external" href="https://github.com/python/cpython/blob/a81849b0315277bb3937271174aaaa5059c0b445/Lib/test/string_tests.py#L854-L860">tests for <code class="docutils literal notranslate"><span class="pre">center</span></code></a>, but they are example-based. We can adapt those tests to use our implementation of <code class="docutils literal notranslate"><span class="pre">center</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">CenterExampleTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">test_center</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;   abc    &#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="s1">&#39; abc  &#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="s1">&#39;***abc****&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+          <span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+
+<span class="c1"># We must call unittest like this to run it in a notebook</span>
+<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">,</span> <span class="s1">&#39;CenterExampleTest&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7fe97ae9b240&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>But now we want to improve our tests and write them using property-based testing. First, we need to think which properties our function must hold. Abstracting from the examples in the test above, we might want to consider two scenarios:</p>
+<ol class="simple">
+<li><p>When the length of the input string is smaller or equal to the input width, <code class="docutils literal notranslate"><span class="pre">center</span></code> returns the original string.</p></li>
+<li><p>When the length of the input string is greater than the width, we expect the returned string to have length equal to the input width. This is a simple property that is easy to check and might still find bugs. We may be tempted to define a property that captures the fact that a string is ‘centered’ in another, but this property’s implementation could in turn have bugs and need tests, so we need to strike a balance here.</p></li>
+</ol>
+<p>Let’s write our property-based tests using Hypothesis for those two scenarios:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">assume</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="n">HealthCheck</span>
+<span class="kn">from</span> <span class="nn">hypothesis.strategies</span> <span class="kn">import</span> <span class="n">text</span><span class="p">,</span> <span class="n">integers</span>
+
+<span class="k">class</span> <span class="nc">CenterPropertyTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+  <span class="nd">@settings</span><span class="p">(</span><span class="n">suppress_health_check</span><span class="o">=</span><span class="n">HealthCheck</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+  <span class="nd">@given</span><span class="p">(</span>
+      <span class="n">s</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">max_size</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+      <span class="n">width</span><span class="o">=</span><span class="n">integers</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="k">def</span> <span class="nf">test_center_length_less_than_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">assume</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">)</span> 
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">)),</span> <span class="n">width</span><span class="p">)</span>
+
+  <span class="nd">@given</span><span class="p">(</span>
+      <span class="n">s</span><span class="o">=</span><span class="n">text</span><span class="p">(),</span>
+      <span class="n">width</span><span class="o">=</span><span class="n">integers</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="k">def</span> <span class="nf">test_center_length_greater_or_equal_to_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">assume</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">width</span><span class="p">)</span> 
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>
+    
+
+<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">,</span> <span class="s1">&#39;CenterPropertyTest&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..
+----------------------------------------------------------------------
+Ran 2 tests in 1.049s
+
+OK
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7fe97af194e0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at the tests, we can see that we use the <code class="docutils literal notranslate"><span class="pre">given</span></code> decorator to describe what our parameters look like so that Hypothesis can generate valid inputs for our tests. We have a parameter called <code class="docutils literal notranslate"><span class="pre">s</span></code>, which is a string. In fact, it could be any string, so instead of testing <code class="docutils literal notranslate"><span class="pre">center</span></code> for a single string like <code class="docutils literal notranslate"><span class="pre">'abc'</span></code>, Hypothesis is going to run our tests for many different strings.</p>
+<p>To tell Hypothesis that <code class="docutils literal notranslate"><span class="pre">s</span></code> could be any string, we need to use what the library calls <a class="reference external" href="https://hypothesis.readthedocs.io/en/latest/data.html">strategies</a>. A strategy is a description of values our parameter can have. We are using the <code class="docutils literal notranslate"><span class="pre">text</span></code> strategy to describe a string.</p>
+<p>The same thing happens for <code class="docutils literal notranslate"><span class="pre">width</span></code>: in theory, it could be any integer, so we use the <code class="docutils literal notranslate"><span class="pre">integers</span></code> strategy. However, to avoid timeouts when running our tests, we limit <code class="docutils literal notranslate"><span class="pre">width</span></code> to being at most 1000. This happens because Hypothesis tries to look for special values that could be an edge case for our code, so it will for example try using the empty string, and very large integers.</p>
+<p>Because we want to distinguish two different scenarios, we also use the <a class="reference external" href="https://hypothesis.readthedocs.io/en/latest/details.html#making-assumptions"><code class="docutils literal notranslate"><span class="pre">assume</span></code> decorator</a></p>
+<p>We can now add back the example-based tests. They will complement our property-based tests, like the case of a missing argument or the case when <code class="docutils literal notranslate"><span class="pre">fillchar</span></code> is provided.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">assume</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="n">HealthCheck</span>
+<span class="kn">from</span> <span class="nn">hypothesis.strategies</span> <span class="kn">import</span> <span class="n">text</span><span class="p">,</span> <span class="n">integers</span>
+
+<span class="k">class</span> <span class="nc">CenterTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">test_center_missing_arg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+          <span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">test_center_examples</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;   abc    &#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="s1">&#39; abc  &#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="s1">&#39;***abc****&#39;</span><span class="p">)</span>
+
+  <span class="nd">@settings</span><span class="p">(</span><span class="n">suppress_health_check</span><span class="o">=</span><span class="n">HealthCheck</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+  <span class="nd">@given</span><span class="p">(</span>
+      <span class="n">s</span><span class="o">=</span><span class="n">text</span><span class="p">(),</span>
+      <span class="n">width</span><span class="o">=</span><span class="n">integers</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="k">def</span> <span class="nf">test_center_length_less_than_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">assume</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">)</span> 
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">)),</span> <span class="n">width</span><span class="p">)</span>
+
+  <span class="nd">@given</span><span class="p">(</span>
+      <span class="n">s</span><span class="o">=</span><span class="n">text</span><span class="p">(),</span>
+      <span class="n">width</span><span class="o">=</span><span class="n">integers</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="k">def</span> <span class="nf">test_center_length_greater_or_equal_to_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">assume</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">width</span><span class="p">)</span> 
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>
+    
+
+<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">,</span> <span class="s1">&#39;CenterTest&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....
+----------------------------------------------------------------------
+Ran 4 tests in 0.885s
+
+OK
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7fe97b25a3c8&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see how property-based testing could help us find bugs, let’s try testing an implementation of <code class="docutils literal notranslate"><span class="pre">center</span></code> that has a bug:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Center implementation with a bug</span>
+
+<span class="k">def</span> <span class="nf">center_with_bug</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">fillchar</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">width</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+  <span class="n">margin</span> <span class="o">=</span> <span class="n">width</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="n">left_margin</span> <span class="o">=</span> <span class="n">margin</span> <span class="o">//</span> <span class="mi">2</span>
+  <span class="n">right_margin</span> <span class="o">=</span> <span class="n">margin</span> <span class="o">//</span> <span class="mi">2</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">fillchar</span> <span class="o">*</span> <span class="n">left_margin</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="n">fillchar</span> <span class="o">*</span> <span class="n">right_margin</span><span class="p">)</span>
+
+<span class="n">center_with_bug</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39; abc &#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The bug here is that, to get the left and right margins, we divide the total margin available by two. However, <code class="docutils literal notranslate"><span class="pre">margin</span></code> can be an odd integer, and in that case <code class="docutils literal notranslate"><span class="pre">margin</span> <span class="pre">//</span> <span class="pre">2</span></code> will be rounded down, and the length of our resulting string won’t be equal to <code class="docutils literal notranslate"><span class="pre">width</span></code>.</p>
+<p>This looks like something that is easy to detect, but if we go back to our example-based tests, we might easily have used an example string (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;abcd&quot;</span></code>) that leaves us testing only even margins:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="k">class</span> <span class="nc">CenterWithBugExampleTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">test_center_with_bug</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center_with_bug</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;   abcd   &#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center_with_bug</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="s1">&#39; abcd &#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center_with_bug</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center_with_bug</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center_with_bug</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">),</span> <span class="s1">&#39;***abcd***&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+          <span class="n">center_with_bug</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">)</span>
+
+<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">,</span> <span class="s1">&#39;CenterWithBugExampleTest&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7fe97be3fe10&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, if we try running our property-based tests, we will find the bug:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">assume</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="n">HealthCheck</span>
+<span class="kn">from</span> <span class="nn">hypothesis.strategies</span> <span class="kn">import</span> <span class="n">text</span><span class="p">,</span> <span class="n">integers</span>
+
+<span class="k">class</span> <span class="nc">CenterWithBugPropertyTest</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+  <span class="nd">@settings</span><span class="p">(</span><span class="n">suppress_health_check</span><span class="o">=</span><span class="n">HealthCheck</span><span class="o">.</span><span class="n">all</span><span class="p">())</span>
+  <span class="nd">@given</span><span class="p">(</span>
+      <span class="n">s</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+      <span class="n">width</span><span class="o">=</span><span class="n">integers</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="k">def</span> <span class="nf">test_center_with_bug_length_less_than_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">assume</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">width</span><span class="p">)</span> 
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">center_with_bug</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">)),</span> <span class="n">width</span><span class="p">)</span>
+
+  <span class="nd">@given</span><span class="p">(</span>
+      <span class="n">s</span><span class="o">=</span><span class="n">text</span><span class="p">(),</span>
+      <span class="n">width</span><span class="o">=</span><span class="n">integers</span><span class="p">(</span><span class="n">max_value</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">)</span>
+  <span class="k">def</span> <span class="nf">test_center_with_bug_length_greater_or_equal_to_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">assume</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">width</span><span class="p">)</span> 
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">center_with_bug</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">width</span><span class="p">),</span> <span class="n">s</span><span class="p">)</span>
+    
+
+<span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first-arg-is-ignored&#39;</span><span class="p">,</span> <span class="s1">&#39;CenterWithBugPropertyTest&#39;</span><span class="p">],</span> <span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.F
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Falsifying example: test_center_with_bug_length_less_than_width(
+    self=&lt;__main__.CenterWithBugPropertyTest testMethod=test_center_with_bug_length_less_than_width&gt;,
+    s=&#39;&#39;,
+    width=1,
+)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>======================================================================
+FAIL: test_center_with_bug_length_less_than_width (__main__.CenterWithBugPropertyTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &quot;&lt;ipython-input-45-b3065f59db69&gt;&quot;, line 8, in test_center_with_bug_length_less_than_width
+    @given(
+  File &quot;/usr/local/lib/python3.6/dist-packages/hypothesis/core.py&quot;, line 1141, in wrapped_test
+    raise the_error_hypothesis_found
+  File &quot;&lt;ipython-input-45-b3065f59db69&gt;&quot;, line 14, in test_center_with_bug_length_less_than_width
+    self.assertEqual(len(center_with_bug(s, width)), width)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.389s
+
+FAILED (failures=1)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;unittest.main.TestProgram at 0x7fe97b360b70&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hypothesis found an example that falsifies our assertion that <code class="docutils literal notranslate"><span class="pre">len(center_with_bug(s,</span> <span class="pre">width))</span></code> equals <code class="docutils literal notranslate"><span class="pre">width</span></code>. The falsifying example is <code class="docutils literal notranslate"><span class="pre">s=&quot;&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">width=1</span></code>.</p>
+<p>A nice feature of Hypothesis and other property-based testing libraries is that, once the library finds a falsifying example, it tries to shrink the example to be the simplest (smallest) example that still breaks our tests. This is important because, once our test fails, we don’t want to have to debug our code using a huge and complex example.</p>
+<p>This may seem like an artifical example (because it is), but it goes to show that it is easy to miss certain scenarios using only example-based testing, and property-based testing can help us find more bugs.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://hypothesis.works/articles/what-is-property-based-testing/">David R. MacIver, “What is Property Based Testing?”</a></p></li>
+<li><p><a class="reference external" href="https://increment.com/testing/in-praise-of-property-based-testing/">David R. MacIver, “In praise of property-based testing”</a></p></li>
+<li><p><a class="reference external" href="https://jessitron.com/2013/04/25/property-based-testing-what-is-it/">Jessica Kerr, “Property-based testing: what is it?”</a></p></li>
+<li><p><a class="reference external" href="https://hypothesis.readthedocs.io/en/latest/">Hypothesis documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.cs.tufts.edu/~nr/cs257/archive/john-hughes/quick.pdf">Claessen, Koen, and John Hughes. “QuickCheck: a lightweight tool for random testing of Haskell programs.” Acm sigplan notices 46.4 (2011): 53-64.</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./testgeneration"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="fuzzing.html" title="previous page">Fuzzing</a>
+    <a class='right-next' id="next-link" href="../testregression/buildsystems.html" title="next page">Build Systems</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The World<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

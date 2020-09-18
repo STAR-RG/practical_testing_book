@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuzzing &#8212; The Practical Testing Book</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Property-based Testing" href="propertybased.html" />
+    <link rel="prev" title="Randomized Testing" href="random.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">The Practical Testing Book</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Fundamentals
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/basics.html">
+   Motivation and Basic Definitions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/limitations.html">
+   Limitations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../fundamentals/kinds.html">
+   The Different Dimensions of Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Granularity
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/unittesting.html">
+   Unit Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/integrationtesting.html">
+   Integration Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/systemtesting.html">
+   System Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testgranularity/acceptancetesting/acceptancetesting.html">
+   Acceptance Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Good/Bad Practices
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/artifacts.html">
+   Test Artifacts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../goodpractices/bugreports.html">
+   Bug Reports
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Adequacy
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/idea.html">
+   How Good Are your Tests?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/coverage.html">
+   Structural Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testadequacy/mutation.html">
+   Mutation Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Test Generation
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="modelbased.html">
+   Model-Based Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="combinatorial.html">
+   Combinatorial Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="random.html">
+   Randomized Testing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Fuzzing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="propertybased.html">
+   Property-based Testing
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Regression Testing
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/buildsystems.html">
+   Build Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/continuousintegration.html">
+   Continuous Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/flakytests.html">
+   Flaky test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../testregression/selectionprio.html">
+   Test Selection and Prioritization
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Debugging
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/scientific.html">
+   Scientific Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/gitbisect.html">
+   git-bisect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../debugging/deltadebugging.html">
+   Delta Debugging
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Misc
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/credits.html">
+   Credits
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../misc/howtohelp.html">
+   How To Help
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/testgeneration/fuzzing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/damorimRG/practical_testing_book/master?urlpath=tree/testgeneration/fuzzing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testgeneration/fuzzing.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hands-on-with-pythonfuzz">
+   Hands on with pythonfuzz
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#defining-a-test-subject">
+     Defining a test subject
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#results">
+     Results
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion">
+     Conclusion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fuzzing">
+<h1>Fuzzing<a class="headerlink" href="#fuzzing" title="Permalink to this headline">¶</a></h1>
+<p>Fuzzing is a software testing technique consisting of <strong>running a program with accepted but randomly generated inputs</strong> in order to find errors or inadequate behaviors in its execution. Input generation is made by a program called a Fuzzer, responsible for creating data that is valid enough to be accepted by the test subject while also hitting some obscure edge-case the developers had never thought of. This technique is also very useful for discovering security vulnerabilities since the random inputs might trigger some exploitable behavior such as a buffer overflows or DoS. <br/>
+In the following short video we can see a bit more about the effectiveness of this technique and how it came to be:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;RqrHT93KdgE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/RqrHT93KdgE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<p>In this next video, you’ll have an example on <strong>how to fuzz PDF reader applications</strong> without the help of fuzzing libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">&#39;uFJGaw8kfOc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="400"
+    height="300"
+    src="https://www.youtube.com/embed/uFJGaw8kfOc"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+<div class="section" id="hands-on-with-pythonfuzz">
+<h2>Hands on with pythonfuzz<a class="headerlink" href="#hands-on-with-pythonfuzz" title="Permalink to this headline">¶</a></h2>
+<p><a href="https://colab.research.google.com/github/damorimRG/practical_testing_book/blob/master/testgeneration/fuzzing.ipynb#Hands-on-with-pythonfuzz" target="_blank"><img style="margin-left: 0px; margin-bottom: 10px;" alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"></a><br/>
+The fuzzer known as <a class="reference external" href="https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/pythonfuzz"><em>pythonfuzz</em></a> is a simple yet powerful example of what a fuzzer can do. In essence, all it does is receive a function which will be called infinitely with different randomly generated inputs each time until it eventually finds an unexpected exception. <br/>
+First things first, let’s install it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pythonfuzz</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="defining-a-test-subject">
+<h3>Defining a test subject<a class="headerlink" href="#defining-a-test-subject" title="Permalink to this headline">¶</a></h3>
+<p>For this example, let’s test the parsing method in Python’s built-in html module. <br/>
+In order for the test to work, we’ll need to create a function that:</p>
+<ol class="simple">
+<li><p>Is annotated with the <code class="docutils literal notranslate"><span class="pre">&#64;PythonFuzz</span></code> annotation in order to be ran in a loop and receive the randomized parameters.</p></li>
+<li><p>Receives an array of bytes as its only parameter and converts it to the format that the test subjects accepts as input.</p></li>
+<li><p>Calls the test subject with the converted input.</p></li>
+<li><p>Catches and ignores any expected exceptions that might appear in runtime.</p></li>
+</ol>
+<p>Note that in the last point we state that some exceptions should be intentionally ignored. This is because they might actually be the correct and expected behavior of the tested code or even thrown by our byte array parser itself. In the following example we’ll try to decode random byte arrays into ascii strings, an operation that will oftentimes fail and, as such, we should just ignore it and continue to the next input.</p>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cleaning sys.argv for compatibility with Jupyter-Notebook</span>
+<span class="c1"># This should be unnecessary in a vanilla Python environment</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">argv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">html.parser</span> <span class="kn">import</span> <span class="n">HTMLParser</span>
+<span class="kn">from</span> <span class="nn">pythonfuzz.main</span> <span class="kn">import</span> <span class="n">PythonFuzz</span>
+
+<span class="nd">@PythonFuzz</span>
+<span class="k">def</span> <span class="nf">fuzz</span><span class="p">(</span><span class="n">buf</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;ascii&quot;</span><span class="p">)</span>
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">HTMLParser</span><span class="p">()</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+<span class="c1"># This `if` statement is here to prevent a possible long execution from happening everytime this book is built</span>
+<span class="c1"># Just consider that we are calling the fuzz function normally</span>
+<span class="k">if</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">fuzz</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#0 READ units: 0
+#1 NEW     cov: 0 corp: 1 exec/s: 18 rss: 112.484375 MB
+#2 NEW     cov: 51 corp: 2 exec/s: 703 rss: 112.48828125 MB
+#20 NEW     cov: 77 corp: 3 exec/s: 3169 rss: 112.48828125 MB
+#434 NEW     cov: 101 corp: 4 exec/s: 3473 rss: 112.48828125 MB
+#435 NEW     cov: 429 corp: 5 exec/s: 1146 rss: 112.48828125 MB
+#455 NEW     cov: 430 corp: 6 exec/s: 3295 rss: 112.48828125 MB
+#1228 NEW     cov: 438 corp: 7 exec/s: 3246 rss: 112.48828125 MB
+#1344 NEW     cov: 455 corp: 8 exec/s: 3172 rss: 112.48828125 MB
+#1358 NEW     cov: 456 corp: 9 exec/s: 2850 rss: 112.48828125 MB
+#1521 NEW     cov: 476 corp: 10 exec/s: 3168 rss: 112.48828125 MB
+#3163 NEW     cov: 480 corp: 11 exec/s: 3207 rss: 112.48828125 MB
+#3168 NEW     cov: 482 corp: 12 exec/s: 1956 rss: 112.55859375 MB
+#11320 NEW     cov: 504 corp: 13 exec/s: 3116 rss: 112.5625 MB
+#18950 NEW     cov: 519 corp: 14 exec/s: 3157 rss: 112.5625 MB
+#20553 NEW     cov: 527 corp: 15 exec/s: 3218 rss: 112.5625 MB
+#29763 NEW     cov: 535 corp: 16 exec/s: 3169 rss: 112.5625 MB
+#30649 NEW     cov: 544 corp: 17 exec/s: 3156 rss: 112.5625 MB
+#31073 NEW     cov: 552 corp: 18 exec/s: 3109 rss: 112.5625 MB
+#31445 NEW     cov: 565 corp: 19 exec/s: 3107 rss: 112.5625 MB
+#31914 NEW     cov: 576 corp: 20 exec/s: 3146 rss: 112.5625 MB
+#42248 NEW     cov: 583 corp: 21 exec/s: 3203 rss: 112.5625 MB
+#58302 PULSE     cov: 588 corp: 22 exec/s: 3210 rss: 112.5625 MB
+#74377 PULSE     cov: 588 corp: 22 exec/s: 3214 rss: 112.5625 MB
+#90506 PULSE     cov: 588 corp: 22 exec/s: 3225 rss: 112.5625 MB
+#93676 NEW     cov: 588 corp: 22 exec/s: 3227 rss: 112.5625 MB
+subclasses of ParserBase must override error()
+Traceback (most recent call last):
+  File &quot;/home/claudio/.local/lib/python3.8/site-packages/pythonfuzz/fuzzer.py&quot;, line 24, in worker
+    target(buf)
+  File &quot;&lt;ipython-input-4-fa827987e39a&gt;&quot;, line 11, in fuzz
+    parser.feed(string)
+  File &quot;/usr/lib/python3.8/html/parser.py&quot;, line 111, in feed
+    self.goahead(0)
+  File &quot;/usr/lib/python3.8/html/parser.py&quot;, line 179, in goahead
+    k = self.parse_html_declaration(i)
+  File &quot;/usr/lib/python3.8/html/parser.py&quot;, line 264, in parse_html_declaration
+    return self.parse_marked_section(i)
+  File &quot;/usr/lib/python3.8/_markupbase.py&quot;, line 149, in parse_marked_section
+    sectName, j = self._scan_name( i+3, i )
+  File &quot;/usr/lib/python3.8/_markupbase.py&quot;, line 390, in _scan_name
+    self.error(&quot;expected name token at %r&quot;
+  File &quot;/usr/lib/python3.8/_markupbase.py&quot;, line 33, in error
+    raise NotImplementedError(
+NotImplementedError: subclasses of ParserBase must override error()
+crash was written to crash-14c0371177db022fc152450c4a1864b77da553cf4e58f59459fd8c155694a022
+crash = 3c215b20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h3>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h3>
+<p>Given enough time, hopefully the previous code snippet should be able to find an unhandled exception in the html parser, usually the <code class="docutils literal notranslate"><span class="pre">NotImplementedError:</span> <span class="pre">subclasses</span> <span class="pre">of</span> <span class="pre">ParserBase</span> <span class="pre">must</span> <span class="pre">override</span> <span class="pre">error()</span></code>.
+It will also conveniently save the error-causing input in a file which name it states in the end of its execution so that we can see it and analyze the exception cause. The file’s content will be an array of bytes, so you might want to convert it to your intended format before analyzing. <br/></p>
+<p>In our execution’s case, pythonfuzz said that the input that caused an error was <code class="docutils literal notranslate"><span class="pre">&lt;![!&gt;</span></code>. Let’s check if that holds true.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">HTMLParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s1">&#39;&lt;![!&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NotImplementedError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">c7c095a1c741</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">HTMLParser</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s1">&#39;&lt;![!&gt;&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/lib/python3.8/html/parser.py</span> in <span class="ni">feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span><span class="s2">         self.rawdata = self.rawdata + data</span>
+<span class="ne">--&gt; </span><span class="mi">111</span><span class="s2">         self.goahead(0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span><span class="s2">     def close(self):</span>
+
+<span class="nn">/usr/lib/python3.8/html/parser.py</span> in <span class="ni">goahead</span><span class="nt">(self, end)</span>
+<span class="g g-Whitespace">    </span><span class="mi">177</span><span class="s2">                     k = self.parse_pi(i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">178</span><span class="s2">                 elif startswith(&quot;&lt;!&quot;, i):</span>
+<span class="ne">--&gt; </span><span class="mi">179</span><span class="s2">                     k = self.parse_html_declaration(i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span><span class="s2">                 elif (i + 1) &lt; n:</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span><span class="s2">                     self.handle_data(&quot;&lt;&quot;)</span>
+
+<span class="nn">/usr/lib/python3.8/html/parser.py</span> in <span class="ni">parse_html_declaration</span><span class="nt">(self, i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span><span class="s2">             return self.parse_comment(i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span><span class="s2">         elif rawdata[i:i+3] == &#39;&lt;![&#39;:</span>
+<span class="ne">--&gt; </span><span class="mi">264</span><span class="s2">             return self.parse_marked_section(i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span><span class="s2">         elif rawdata[i:i+9].lower() == &#39;&lt;!doctype&#39;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span><span class="s2">             # find the closing &gt;</span>
+
+<span class="nn">/usr/lib/python3.8/_markupbase.py</span> in <span class="ni">parse_marked_section</span><span class="nt">(self, i, report)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span><span class="s2">         rawdata= self.rawdata</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span><span class="s2">         assert rawdata[i:i+3] == &#39;&lt;![&#39;, &quot;unexpected call to parse_marked_section()&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">149</span><span class="s2">         sectName, j = self._scan_name( i+3, i )</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span><span class="s2">         if j &lt; 0:</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span><span class="s2">             return j</span>
+
+<span class="nn">/usr/lib/python3.8/_markupbase.py</span> in <span class="ni">_scan_name</span><span class="nt">(self, i, declstartpos)</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span><span class="s2">             self.updatepos(declstartpos, i)</span>
+<span class="ne">--&gt; </span><span class="mi">390</span><span class="s2">             self.error(&quot;expected name token at </span><span class="si">%r</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span><span class="s2">                        </span><span class="si">% r</span><span class="s2">awdata[declstartpos:declstartpos+20])</span>
+<span class="g g-Whitespace">    </span><span class="mi">392</span><span class="s2"> </span>
+
+<span class="nn">/usr/lib/python3.8/_markupbase.py</span> in <span class="ni">error</span><span class="nt">(self, message)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span><span class="s2">     def error(self, message):</span>
+<span class="ne">---&gt; </span><span class="mi">33</span><span class="s2">         raise NotImplementedError(</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span><span class="s2">             &quot;subclasses of ParserBase must override error()&quot;)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span><span class="s2"> </span>
+
+<span class="ne">NotImplementedError</span>: subclasses of ParserBase must override error()
+</pre></div>
+</div>
+</div>
+</div>
+<p>In fact, it seems like this input really breaks the html parser. <br/>
+Now, what about using it to test our own programs? Well, we can apply the same principles as before. For the next example, let’s create a hypothetical function that receives an integer but raises an exception when this integer is 74.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">intFunc</span><span class="p">(</span><span class="n">integer</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">integer</span> <span class="o">==</span> <span class="mi">74</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;oh no&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;ok&quot;</span>
+
+<span class="nd">@PythonFuzz</span>
+<span class="k">def</span> <span class="nf">fuzz2</span><span class="p">(</span><span class="n">buf</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">integer</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="s2">&quot;big&quot;</span><span class="p">)</span>  
+        <span class="n">intFunc</span><span class="p">(</span><span class="n">integer</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+
+<span class="n">fuzz2</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#0 READ units: 0
+#1 NEW     cov: 0 corp: 1 exec/s: 107 rss: 113.54296875 MB
+#2 NEW     cov: 29 corp: 2 exec/s: 960 rss: 113.59375 MB
+#28880 PULSE     cov: 55 corp: 3 exec/s: 5775 rss: 113.59375 MB
+oh no
+Traceback (most recent call last):
+  File &quot;/home/claudio/.local/lib/python3.8/site-packages/pythonfuzz/fuzzer.py&quot;, line 24, in worker
+    target(buf)
+  File &quot;&lt;ipython-input-6-1259eb7f2e89&gt;&quot;, line 11, in fuzz2
+    intFunc(integer)
+  File &quot;&lt;ipython-input-6-1259eb7f2e89&gt;&quot;, line 3, in intFunc
+    raise Exception(&#39;oh no&#39;)
+Exception: oh no
+crash was written to crash-6da43b944e494e885e69af021f93c6d9331c78aa228084711429160a5bbd15b5
+crash = 4a
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that in this case we also used the <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block to pass when finding a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>. This is because not all byte arrays can be converted to integers and we wouldn’t want the fuzzer to stop its execution because of that, so it must just move on to the next input and try again.</p>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h3>
+<p>As seen in our example, fuzzers are very easy to use and even develop. I encourage you to take a look into pythonfuzz’s repository and see how simple the implementation really is. You might even be able to contribute since it is open-source! This technique is also quite powerful, as it can find edge-cases that a human mind would hardly have even thought of. <br/>
+If you want to learn more deeply about fuzzing, I highly recommend you to read the spectacular <a class="reference external" href="https://www.fuzzingbook.org/">Fuzzing Book</a> by Andreas Zeller, Rahul Gopinath, Marcel Böhme, Gordon Fraser, and Christian Holler. It really enters in detail about every single aspect of this technique and is an accessible read even for beginner programmers.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>https://en.wikipedia.org/wiki/Fuzzing</p></li>
+<li><p>https://www.fuzzingbook.org/</p></li>
+<li><p>https://owasp.org/www-community/Fuzzing</p></li>
+<li><p>http://www.squarefree.com/categories/fuzzing/</p></li>
+<li><p>https://gitlab.com/gitlab-org/security-products/analyzers/fuzzers/pythonfuzz</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./testgeneration"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="random.html" title="previous page">Randomized Testing</a>
+    <a class='right-next' id="next-link" href="propertybased.html" title="next page">Property-based Testing</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The World<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
