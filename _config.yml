@@ -10,6 +10,7 @@ html:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/damorimRG/practical_testing_book
+
 launch_buttons:
   notebook_interface: "classic" # The interface interactive links will activate ["classic", "jupyterlab"]
 #  binderhub_url: "https://mybinder.org"
@@ -19,8 +20,18 @@ latex:
   latex_documents:
     targetname: book.tex
     
-exclude_patterns: [pattern1/*, fundamentals/README.md, testgranularity/robot.ipynb, demos/*]
-#exclude_patterns: [pattern1/*, fundamentals/README.mdmd, testgranularity/robot.ipynb, testgranularity/acceptancetesting.md]
+exclude_patterns: [
+  README.md,
+  fundamentals/README.md,
+  bibliography/bibliography.md,
+  testgranularity/driver.ipynb,
+  testadequacy/mutation_hands_on.ipynb,
+  testgranularity/acceptancetesting/collabAcceptanceTesting.ipynb,
+  testgranularity/systemtesting_example.ipynb,
+  debugging/gitbisect.ipynb,
+  misc/tobedone.md,
+  demos
+]
 
 execute:
   execute_notebooks: 'off'
