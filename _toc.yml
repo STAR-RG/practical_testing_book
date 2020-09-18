@@ -12,8 +12,6 @@
 - part: Test Granularity
   chapters:
     - file: testgranularity/unittesting
-      sections:
-        - file: testgranularity/organization_of_unit_tests.ipynb
     - file: testgranularity/integrationtesting
       sections:
         - file: testgranularity/mocking.ipynb
