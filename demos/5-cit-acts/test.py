@@ -10,15 +10,16 @@ def parse_config(filename):
         for line in lines:
             line = line.strip()
             if not line: # Empty line
+                if config:
+                    configs.append(config)
+                    config = {}
                 continue
             if line.startswith("#"): # Comment
                 continue
             elif line.startswith("-----"): # Configuration separator
                 continue
             elif line.startswith("Configuration"):
-                if config:
-                    configs.append(config)
-                config = {}
+                continue
             else: # Configuration parameter with its value
                 parts = line.split()
                 keyval = parts[2]
