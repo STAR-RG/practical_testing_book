@@ -21,6 +21,14 @@ This, perhaps, is the great motivation for writing good bug reports. Although th
     
     A clear title makes the bug report easier to find and helps identify duplicates.
 
+* Priority Level
+
+    It is based on the criticality and urgency of correcting a bug:
+    * **Immediate** - Must be addressed immediately.
+    * **High** - Must be addressed as soon as possible in the normal course of development, before the software is released.
+    * **Medium** - Must be addressed after the more serious issues have been fixed.
+    * **Low** Must be addressed in a future major system revision or not be resolved at all.
+    
 * Details of the Environment
 
     This part should include all the details about the environment setup and configuration on which the app is running and should assist in identifying incompatibilities with the presented system.
@@ -66,3 +74,4 @@ Some of them integrate with other software development tools, such as [Jenkins](
 1. Sviatoslav A., Elena K. (n.d.). How to Write a Bug Report [Blog post]. Retrieved from [https://rubygarage.org/blog/how-to-write-a-quality-bug-report](https://rubygarage.org/blog/how-to-write-a-quality-bug-report)
 1. (2020, August 1). How To Write A Good Bug Report? Tips And Tricks. Retrieved from [https://www.softwaretestinghelp.com/how-to-write-good-bug-report](https://www.softwaretestinghelp.com/how-to-write-good-bug-report/)
 1. (n.d.). Bug tracking system. Retrieved from [https://en.wikipedia.org/wiki/Bug_tracking_system](https://en.wikipedia.org/wiki/Bug_tracking_system)
+1. (2021, April 19) Using your Issue Tracking tool: Setting Issue Priority and Severity. Retrieved from http://www.elementool.com/contact/articles/Bug_Tracking_severity_priority.html
