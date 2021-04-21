@@ -21,6 +21,10 @@ Click in the link to open the example on Google Colab!
 
 ![Gif](../assets/robot_hands_on.gif)
 
+## Is System Testing equivalent to functional testing?
+
+No. The difference between System Testing and Functional Testing is that System Testing tests the entire product or section of a product while Functional Testing only tests a single feature within a section of a product. In theory if you have tested all of the features of your product using Functional Testing and then at the end of development before you ship you perform a System Test on your entire product you should have a pretty easy time with your System Test because it has been incrementally tested using Functional Tests along the way.
+
 ## Final Considerations
 
 System Testing can cover a complete end to end applications while testing both Business requirements and System Software Arquitecture. It can help finding issues and bugs on the application before it goes into production. However, testing with frameworks requires a long time and can increase costs if relies on business necessities and application arquitecture.
@@ -32,5 +36,6 @@ In a nutshell, System Testing can improve software quality and prevent some issu
 - [Robot framework](https://robotframework.org)
 - [Selenium2library](https://robotframework.org/Selenium2Library/Selenium2Library.html)
 - [Wikipedia System Testing](https://en.wikipedia.org/wiki/System_testing#cite_ref-1)
+- [System Testing And Functional Testing](https://www.agnosticdev.com/blog-entry/testing/system-testing-and-functional-testing#:~:text=So%20the%20difference%20between%20System,a%20section%20of%20a%20product.)
 - [Pros & Cons with Working Process of System Testing](https://www.testorigen.com/pros-cons-with-working-process-of-system-testing/)
 - [What is System Testing? Types & Definition with Example](https://www.guru99.com/system-testing.html)
